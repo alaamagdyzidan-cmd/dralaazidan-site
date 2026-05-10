@@ -60,9 +60,9 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   }
 
   // Hours / time
-  if (/\b(hour|time|open|close|when|availability|today|tomorrow|saturday|sunday|friday|weekend)\b/.test(q)) {
+  if (/\b(hour|time|open|close|when|availability|today|tomorrow|saturday|sunday|friday|weekend|monday|tuesday|wednesday|thursday)\b/.test(q)) {
     return {
-      text: "Visits are by appointment. To check availability for your preferred day, please message on WhatsApp.",
+      text: "The clinic is open every day from 6:00 PM to 11:00 PM, by appointment. To reserve a time, please message on WhatsApp — same-day reply.",
       showWhatsAppCta: true,
     };
   }

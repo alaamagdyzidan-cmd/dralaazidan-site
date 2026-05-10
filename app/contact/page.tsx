@@ -107,12 +107,17 @@ export default function ContactPage({
             </div>
 
             <div>
-              <h3 className="text-xs uppercase tracking-widest text-gold-500">Hours</h3>
-              <ul className="mt-3 space-y-1 text-ink-700">
-                <li>Sunday – Thursday · 10:00 – 18:00</li>
-                <li>Saturday · 10:00 – 14:00</li>
-                <li>Friday · Closed</li>
-              </ul>
+              <h3 className="text-xs uppercase tracking-widest text-gold-500">Clinic hours</h3>
+              <div className="mt-3 inline-flex flex-col gap-1 rounded-2xl border border-gold-300/40 bg-gradient-to-br from-sand-50 via-rose-50 to-sand-50 px-5 py-4">
+                <p className="font-serif text-lg text-ink-900">Open every day</p>
+                <p className="text-sm text-ink-700">
+                  <span className="font-medium text-ink-900">6:00 PM – 11:00 PM</span>
+                  <span className="ml-2 text-ink-600">(18:00 – 23:00)</span>
+                </p>
+                <p className="mt-1 text-[10px] uppercase tracking-[0.25em] text-gold-500">
+                  By appointment · same-day reply
+                </p>
+              </div>
             </div>
 
             <div>
