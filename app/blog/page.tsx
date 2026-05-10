@@ -17,22 +17,23 @@ export default function BlogPage() {
   const [featured, ...rest] = posts;
   return (
     <>
-      <section className="container-page pt-20 pb-12">
+      <section className="container-page pt-14 pb-10 md:pt-20 md:pb-12">
         <span className="eyebrow">Blog</span>
-        <h1 className="mt-4 font-serif text-5xl leading-tight text-ink-900 md:text-7xl">
-          Notes on the treatments we do, <span className="italic text-rose-400">and the skin we treat.</span>
+        <h1 className="mt-4 font-serif text-4xl leading-tight text-ink-900 sm:text-5xl md:text-6xl lg:text-7xl">
+          Notes on the treatments we do,{" "}
+          <span className="italic text-rose-400">and the skin we treat.</span>
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-ink-700">
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-700 md:mt-6 md:text-lg">
           Honest writing on aesthetic dermatology — Botox, fillers, exosomes,
           microneedling, and the daily skincare habits that matter most under
           tropical light.
         </p>
       </section>
 
-      <section className="container-page pb-16">
+      <section className="container-page pb-12 md:pb-16">
         <Link
           href={`/blog/${featured.slug}`}
-          className="group grid gap-10 overflow-hidden rounded-[2rem] border border-sand-200 bg-sand-50 p-8 md:grid-cols-12 md:p-12"
+          className="group grid gap-6 overflow-hidden rounded-[1.75rem] border border-sand-200 bg-sand-50 p-5 sm:gap-8 sm:rounded-[2rem] sm:p-8 md:grid-cols-12 md:gap-10 md:p-12"
         >
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:col-span-6">
             <Image
@@ -44,26 +45,28 @@ export default function BlogPage() {
             />
           </div>
           <div className="md:col-span-6 md:flex md:flex-col md:justify-center">
-            <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-gold-500">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-widest text-gold-500">
               <span>{featured.category}</span>
               <span className="h-1 w-1 rounded-full bg-gold-300" />
               <span>{featured.date}</span>
               <span className="h-1 w-1 rounded-full bg-gold-300" />
               <span>{featured.readingTime}</span>
             </div>
-            <h2 className="mt-4 font-serif text-3xl text-ink-900 md:text-5xl">
+            <h2 className="mt-3 font-serif text-2xl text-ink-900 sm:text-3xl md:mt-4 md:text-5xl">
               {featured.title}
             </h2>
-            <p className="mt-5 text-ink-700 leading-relaxed">{featured.excerpt}</p>
-            <span className="mt-8 inline-block text-sm font-medium uppercase tracking-widest text-gold-500">
+            <p className="mt-4 text-base leading-relaxed text-ink-700 md:mt-5">
+              {featured.excerpt}
+            </p>
+            <span className="mt-6 inline-block text-sm font-medium uppercase tracking-widest text-gold-500 md:mt-8">
               Read article →
             </span>
           </div>
         </Link>
       </section>
 
-      <section className="container-page pb-16">
-        <div className="grid gap-10 md:grid-cols-3">
+      <section className="container-page pb-12 md:pb-16">
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
           {rest.map((p) => (
             <Link key={p.slug} href={`/blog/${p.slug}`} className="group block">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-sand-100">

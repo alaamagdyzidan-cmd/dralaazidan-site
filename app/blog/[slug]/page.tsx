@@ -38,28 +38,28 @@ export default function BlogPostPage({ params }: Props) {
   return (
     <>
       <article>
-        <header className="container-page pt-20 pb-12">
+        <header className="container-page pt-14 pb-8 md:pt-20 md:pb-12">
           <div className="mx-auto max-w-3xl">
             <Link href="/blog" className="text-xs uppercase tracking-widest text-gold-500 hover:text-gold-600">
               ← Back to blog
             </Link>
-            <div className="mt-8 flex items-center gap-3 text-xs uppercase tracking-widest text-gold-500">
+            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] uppercase tracking-widest text-gold-500 md:mt-8 md:text-xs">
               <span>{post.category}</span>
               <span className="h-1 w-1 rounded-full bg-gold-300" />
               <span>{post.date}</span>
               <span className="h-1 w-1 rounded-full bg-gold-300" />
               <span>{post.readingTime}</span>
             </div>
-            <h1 className="mt-5 font-serif text-4xl leading-[1.1] text-ink-900 md:text-6xl">
+            <h1 className="mt-4 font-serif text-3xl leading-[1.1] text-ink-900 sm:text-4xl md:mt-5 md:text-5xl lg:text-6xl">
               {post.title}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-ink-700">{post.excerpt}</p>
+            <p className="mt-5 text-base leading-relaxed text-ink-700 md:mt-6 md:text-lg">{post.excerpt}</p>
           </div>
         </header>
 
-        <div className="container-page pb-12">
+        <div className="container-page pb-10 md:pb-12">
           <div
-            className={`relative mx-auto aspect-[16/9] w-full max-w-5xl overflow-hidden rounded-[2rem] ${
+            className={`relative mx-auto aspect-[16/9] w-full max-w-5xl overflow-hidden rounded-2xl sm:rounded-[2rem] ${
               post.imageFit === "contain"
                 ? "bg-gradient-to-br from-sand-50 via-rose-50 to-sand-50"
                 : "bg-sand-100"
@@ -76,22 +76,22 @@ export default function BlogPostPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="container-page pb-24">
-          <div className="mx-auto max-w-3xl space-y-10">
+        <div className="container-page pb-16 md:pb-24">
+          <div className="mx-auto max-w-3xl space-y-8 md:space-y-10">
             {post.body.map((section, i) => (
-              <section key={i} className="space-y-5">
+              <section key={i} className="space-y-4 md:space-y-5">
                 {section.heading && (
-                  <h2 className="font-serif text-3xl text-ink-900">{section.heading}</h2>
+                  <h2 className="font-serif text-2xl text-ink-900 md:text-3xl">{section.heading}</h2>
                 )}
                 {section.paragraphs.map((p, j) => (
-                  <p key={j} className="text-lg leading-relaxed text-ink-700">
+                  <p key={j} className="text-base leading-relaxed text-ink-700 md:text-lg">
                     {p}
                   </p>
                 ))}
                 {section.bullets && (
                   <ul className="space-y-2 pl-1">
                     {section.bullets.map((b, k) => (
-                      <li key={k} className="flex items-start gap-3 text-lg leading-relaxed text-ink-700">
+                      <li key={k} className="flex items-start gap-3 text-base leading-relaxed text-ink-700 md:text-lg">
                         <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-gold-400" />
                         <span>{b}</span>
                       </li>
@@ -115,13 +115,13 @@ export default function BlogPostPage({ params }: Props) {
             ))}
           </div>
 
-          <div className="mx-auto mt-16 max-w-3xl rounded-2xl bg-rose-100 p-8 text-center">
-            <p className="font-serif text-2xl text-ink-900">Have a question about this?</p>
-            <p className="mt-3 text-ink-700">
+          <div className="mx-auto mt-12 max-w-3xl rounded-2xl bg-rose-100 p-6 text-center sm:p-8 md:mt-16">
+            <p className="font-serif text-xl text-ink-900 sm:text-2xl">Have a question about this?</p>
+            <p className="mt-3 text-sm text-ink-700 md:text-base">
               Every patient's skin and goals are different. Send us a message
               and we'll answer before you commit to anything.
             </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
               <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Book Appointment
               </Link>
@@ -134,11 +134,11 @@ export default function BlogPostPage({ params }: Props) {
       </article>
 
       <section className="border-t border-sand-200 bg-sand-100/50">
-        <div className="container-page py-20">
+        <div className="container-page py-14 md:py-20">
           <span className="eyebrow">Keep reading</span>
-          <h3 className="mt-3 font-serif text-3xl text-ink-900 md:text-4xl">More from the blog</h3>
+          <h3 className="mt-3 font-serif text-2xl text-ink-900 sm:text-3xl md:text-4xl">More from the blog</h3>
 
-          <div className="mt-12 grid gap-10 md:grid-cols-3">
+          <div className="mt-8 grid gap-8 sm:grid-cols-2 md:mt-12 md:grid-cols-3 md:gap-10">
             {related.map((p) => (
               <Link key={p.slug} href={`/blog/${p.slug}`} className="group block">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-sand-100">

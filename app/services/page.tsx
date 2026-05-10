@@ -259,46 +259,47 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="container-page py-24">
-        <div className="relative overflow-hidden rounded-[2rem] bg-ink-900 px-6 py-16 text-center text-sand-50 md:px-12 md:py-20">
+      <section className="container-page py-16 md:py-24">
+        <div className="relative overflow-hidden rounded-[1.75rem] bg-ink-900 px-5 py-12 text-center text-sand-50 sm:rounded-[2rem] sm:px-8 sm:py-16 md:px-12 md:py-20">
           {/* Soft gold radial glow */}
           <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(201,167,107,0.18),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(229,191,178,0.12),transparent_60%)]" />
 
           <div className="mx-auto flex max-w-2xl flex-col items-center">
-            <LogoMark size="lg" variant="dark" />
+            <LogoMark size="md" variant="dark" />
 
-            <span className="mt-8 text-[11px] font-medium uppercase tracking-[0.4em] text-gold-300">
+            <span className="mt-6 text-[10px] font-medium uppercase tracking-[0.35em] text-gold-300 sm:text-[11px] sm:tracking-[0.4em] md:mt-8">
               Begin a conversation
             </span>
 
-            <h2 className="mt-5 font-serif text-4xl leading-tight md:text-5xl">
+            <h2 className="mt-4 font-serif text-3xl leading-tight sm:text-4xl md:mt-5 md:text-5xl">
               Not sure where to start?
             </h2>
 
-            <p className="mt-6 text-base leading-relaxed text-sand-200 md:text-lg">
+            <p className="mt-5 text-sm leading-relaxed text-sand-200 sm:text-base md:mt-6 md:text-lg">
               Send us a quick message — describe what you'd like to address and
-              we'll let you know which treatments make sense to consider. Same-day
-              replies on WhatsApp and Instagram. No pressure, no upsells.
+              we'll let you know which treatments make sense to consider.
+              Same-day replies on WhatsApp and Instagram. No pressure, no
+              upsells.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-8 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center md:mt-10">
               <Link
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary"
+                className="btn-primary w-full sm:w-auto"
               >
                 Book Appointment
               </Link>
               <Link
                 href="/contact"
-                className="rounded-full border border-sand-200/40 px-7 py-3 text-xs font-medium uppercase tracking-[0.2em] text-sand-50 transition hover:border-gold-300 hover:text-gold-300"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-sand-200/40 px-7 py-3 text-xs font-medium uppercase tracking-[0.2em] text-sand-50 transition hover:border-gold-300 hover:text-gold-300 sm:w-auto"
               >
                 Contact
               </Link>
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[10px] uppercase tracking-[0.3em] text-sand-300">
+            <div className="mt-8 flex flex-col items-center gap-2 text-[9px] uppercase tracking-[0.25em] text-sand-300 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2 sm:text-[10px] sm:tracking-[0.3em] md:mt-10 md:gap-x-8">
               <span className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold-300" /> Same-day replies
               </span>

@@ -91,19 +91,19 @@ export default function AboutPage() {
 
       {/* PHILOSOPHY */}
       <section className="bg-sand-100/60 border-y border-sand-200">
-        <div className="container-page py-24 grid gap-12 md:grid-cols-12">
+        <div className="container-page py-14 grid gap-10 md:grid-cols-12 md:gap-12 md:py-24">
           <div className="md:col-span-4">
             <span className="eyebrow">Philosophy</span>
-            <h2 className="mt-3 font-serif text-4xl text-ink-900">
+            <h2 className="mt-3 font-serif text-3xl text-ink-900 sm:text-4xl">
               Three principles guide every appointment.
             </h2>
           </div>
-          <div className="md:col-span-7 md:col-start-6 space-y-10">
+          <div className="md:col-span-7 md:col-start-6 space-y-8 md:space-y-10">
             {principles.map((p, i) => (
-              <div key={p.title} className="border-l-2 border-gold-300 pl-6">
+              <div key={p.title} className="border-l-2 border-gold-300 pl-5 md:pl-6">
                 <span className="text-xs uppercase tracking-widest text-gold-500">0{i + 1}</span>
-                <h3 className="mt-2 font-serif text-2xl text-ink-900">{p.title}</h3>
-                <p className="mt-3 text-ink-700 leading-relaxed">{p.body}</p>
+                <h3 className="mt-2 font-serif text-xl text-ink-900 sm:text-2xl">{p.title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-ink-700">{p.body}</p>
               </div>
             ))}
           </div>
@@ -111,12 +111,12 @@ export default function AboutPage() {
       </section>
 
       {/* EXPERTISE */}
-      <section className="container-page py-24">
-        <div className="grid gap-12 md:grid-cols-12">
+      <section className="container-page py-14 md:py-24">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-4">
             <span className="eyebrow">Expertise</span>
-            <h2 className="mt-3 font-serif text-4xl text-ink-900">Areas of practice</h2>
-            <p className="mt-6 text-ink-700">
+            <h2 className="mt-3 font-serif text-3xl text-ink-900 sm:text-4xl">Areas of practice</h2>
+            <p className="mt-5 text-base text-ink-700 md:mt-6">
               A focused, well-defined scope. Each procedure performed regularly
               and with the same standard of medical precision.
             </p>
@@ -136,10 +136,10 @@ export default function AboutPage() {
 
       {/* CLINIC INFO */}
       <section className="border-y border-sand-200 bg-sand-100/40">
-        <div className="container-page py-20 grid gap-12 md:grid-cols-12">
+        <div className="container-page py-14 grid gap-10 md:grid-cols-12 md:gap-12 md:py-20">
           <div className="md:col-span-5">
             <span className="eyebrow">The clinic</span>
-            <h2 className="mt-3 font-serif text-4xl text-ink-900">
+            <h2 className="mt-3 font-serif text-3xl text-ink-900 sm:text-4xl">
               Life Care Medical Center
             </h2>
             <p className="mt-6 text-ink-700">
@@ -172,16 +172,16 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="container-page py-24">
-        <div className="rounded-[2rem] bg-rose-100 p-12 text-center md:p-16">
-          <h2 className="font-serif text-4xl text-ink-900 md:text-5xl">
+      <section className="container-page py-14 md:py-24">
+        <div className="rounded-[1.75rem] bg-rose-100 p-6 text-center sm:p-10 sm:rounded-[2rem] md:p-16">
+          <h2 className="font-serif text-3xl text-ink-900 sm:text-4xl md:text-5xl">
             Begin with a consultation.
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-ink-700">
+          <p className="mx-auto mt-5 max-w-xl text-base text-ink-700 md:mt-6">
             Same-day replies on WhatsApp and Instagram. We're happy to answer
             questions before you commit to anything.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center md:mt-10">
             <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
               Book Appointment
             </Link>
