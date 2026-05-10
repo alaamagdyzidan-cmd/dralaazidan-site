@@ -494,24 +494,27 @@ export default function AiAgent() {
 
   return (
     <>
-      {/* Floating launcher — bottom-LEFT */}
+      {/* Floating launcher — bottom-RIGHT, stacked directly above WhatsApp */}
       {!open && (
         <button
           type="button"
           onClick={openChat}
           aria-label="Open Layan, the clinic AI assistant"
-          className="group fixed bottom-6 left-6 z-50 flex items-center gap-3 rounded-full bg-gradient-to-br from-rose-300 via-gold-400 to-gold-500 px-2 py-2 pr-4 text-sand-50 shadow-lg shadow-ink-900/30 transition hover:scale-[1.03] focus:outline-none focus-visible:ring-4 focus-visible:ring-gold-300"
+          title="Chat with Layan"
+          className="group fixed bottom-24 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-rose-300 via-gold-400 to-gold-500 p-1 text-sand-50 shadow-lg shadow-ink-900/30 transition hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-gold-300 md:h-16 md:w-16"
         >
-          <LAvatar size="md" />
-          <span className="flex flex-col items-start leading-tight">
-            <span className="text-xs font-semibold tracking-wide">Chat with Layan</span>
-            <span className="text-[9px] uppercase tracking-[0.2em] opacity-90">
-              AI clinic assistant
+          <span className="flex h-full w-full items-center justify-center rounded-full bg-sand-50 text-gold-500">
+            <span
+              className="font-script text-3xl leading-none md:text-4xl"
+              style={{ paddingBottom: "0.18em" }}
+              aria-hidden
+            >
+              L
             </span>
           </span>
-          {/* Online dot */}
-          <span className="absolute bottom-1.5 left-[34px] h-3 w-3 rounded-full border-2 border-sand-50 bg-green-500" />
-          {/* Quiet new-message badge — appears after a short delay */}
+          {/* Online indicator */}
+          <span className="absolute bottom-0.5 right-0.5 h-3 w-3 rounded-full border-2 border-sand-50 bg-green-500" />
+          {/* Subtle unread badge after a short delay */}
           {showPeek && (
             <span
               aria-label="New message"
@@ -523,12 +526,12 @@ export default function AiAgent() {
         </button>
       )}
 
-      {/* Chat panel */}
+      {/* Chat panel — opens upward from the launcher on the right */}
       {open && (
         <div
           role="dialog"
           aria-label="Layan — Dr. Alaa's AI clinic assistant"
-          className="fixed bottom-6 left-4 right-4 z-50 flex max-h-[80vh] flex-col overflow-hidden rounded-3xl border border-gold-300/50 bg-sand-50 shadow-2xl shadow-ink-900/30 sm:bottom-6 sm:left-6 sm:right-auto sm:w-[380px]"
+          className="fixed bottom-24 left-4 right-4 z-50 flex max-h-[75vh] flex-col overflow-hidden rounded-3xl border border-gold-300/50 bg-sand-50 shadow-2xl shadow-ink-900/30 sm:bottom-24 sm:left-auto sm:right-6 sm:w-[380px]"
         >
           {/* Header */}
           <div className="flex items-center justify-between border-b border-sand-200 bg-gradient-to-br from-sand-50 via-rose-50 to-sand-50 px-5 py-4">
