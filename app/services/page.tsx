@@ -14,91 +14,50 @@ const WHATSAPP_URL = `https://wa.me/9607937512?text=${encodeURIComponent("Hello 
 
 const categories = [
   {
-    id: "pigmentation",
-    title: "Pigmentation, Melasma & Acne",
+    id: "skin",
+    title: "Skin Rejuvenation",
     intro:
-      "Medical-led management for hyperpigmentation, melasma, post-inflammatory marks, and active or scarred acne. Every plan begins with a detailed skin assessment to choose the right protocol for your skin type.",
-    image: null,
+      "Foundational treatments to restore clarity, tone, and resilience. Pigmentation and acne care, peels, and microneedling — often the most impactful work and the platform that makes everything else better.",
+    image: "/images/alaa-4.jpg",
     treatments: [
-      { name: "Melasma management", time: "By plan" },
-      { name: "Post-inflammatory hyperpigmentation", time: "By plan" },
-      { name: "Active acne treatment", time: "By plan" },
-      { name: "Acne scarring", time: "By plan" },
-    ],
-  },
-  {
-    id: "peels",
-    title: "Chemical Peels & Medical Facials",
-    intro:
-      "Layered, controlled exfoliation tailored to your concerns — from gentle radiance peels to medium-depth resurfacing — paired with medical facials and Hydrafacial for everyday glow.",
-    image: null,
-    treatments: [
+      { name: "Pigmentation, melasma & acne management", time: "By plan" },
       { name: "Chemical peel — superficial", time: "30 min" },
       { name: "Chemical peel — medium-depth", time: "45 min" },
       { name: "Medical facial", time: "60 min" },
       { name: "Hydrafacial", time: "45 min" },
-    ],
-  },
-  {
-    id: "microneedling",
-    title: "Microneedling",
-    intro:
-      "Small needles, big results. Tiny channels in the skin trigger collagen and elastin renewal, with serums and growth factors delivered deeper than topical care alone can reach.",
-    image: "/images/alaa-4.jpg",
-    treatments: [
       { name: "Microneedling with serum", time: "45 min" },
       { name: "Microneedling with PRP", time: "60 min" },
-      { name: "Microneedling with growth factors", time: "60 min" },
     ],
   },
   {
-    id: "skin-boosters",
-    title: "Skin Boosters",
+    id: "injectables",
+    title: "Injectables",
     intro:
-      "Injectable hydration and bio-revitalisation. Profhilo, Sunekos, polynucleotides, and vitamin cocktails deliver structural support and luminosity deep into the dermis.",
-    image: null,
+      "Anti-wrinkle injections, dermal filler, and skin boosters placed with restraint and anatomical precision. Subtle softening of expression lines, considered volume restoration, and bio-revitalisation designed to look like nothing was done.",
+    image: "/images/alaa-3.jpg",
     treatments: [
-      { name: "Skin boosters — Profhilo", time: "30 min" },
-      { name: "Skin boosters — Sunekos", time: "30 min" },
+      { name: "Skin boosters — Profhilo, Sunekos", time: "30 min" },
       { name: "Polynucleotides", time: "30 min" },
       { name: "Mesotherapy / vitamin cocktails", time: "30 min" },
+      { name: "Anti-wrinkle injections — frown lines", time: "20–30 min" },
+      { name: "Anti-wrinkle injections — forehead", time: "20–30 min" },
+      { name: "Anti-wrinkle injections — crow's feet", time: "20 min" },
+      { name: "Natural lip filler", time: "30–45 min" },
+      { name: "Cheek and midface filler", time: "45 min" },
+      { name: "Chin and jawline filler", time: "45 min" },
     ],
   },
   {
-    id: "exosomes",
-    title: "Exosomes for Hair & Skin",
+    id: "regenerative",
+    title: "Regenerative",
     intro:
-      "Regenerative therapy using lab-derived exosomes — natural messengers that signal hair follicles and skin cells to renew. Non-surgical, with consistently strong results in the right candidate.",
+      "Cutting-edge regenerative treatments using your body's own healing mechanisms — exosomes, growth factors, and platelet-rich plasma — to restore hair and skin without surgery.",
     image: "/images/alaa-2.jpg",
     treatments: [
       { name: "Exosomes for hair restoration", time: "45–60 min" },
       { name: "Exosomes for skin rejuvenation", time: "45 min" },
       { name: "PRP for hair", time: "45 min" },
       { name: "PRP for skin (vampire facial)", time: "60 min" },
-    ],
-  },
-  {
-    id: "anti-wrinkle",
-    title: "Anti-Wrinkle Injections (Botox)",
-    intro:
-      "Botox placed with restraint and anatomical precision. Subtle softening of expression lines — natural movement preserved, never frozen.",
-    image: "/images/alaa-1.jpg",
-    treatments: [
-      { name: "Anti-wrinkle injections — frown lines", time: "20–30 min" },
-      { name: "Anti-wrinkle injections — forehead", time: "20–30 min" },
-      { name: "Anti-wrinkle injections — crow's feet", time: "20 min" },
-    ],
-  },
-  {
-    id: "dermal-fillers",
-    title: "Dermal Fillers",
-    intro:
-      "Hyaluronic acid filler placed with restraint — natural, soft, harmonised with the face. Natural lip filler, cheek and midface, chin and jawline.",
-    image: "/images/alaa-3.jpg",
-    treatments: [
-      { name: "Natural lip filler", time: "30–45 min" },
-      { name: "Cheek and midface filler", time: "45 min" },
-      { name: "Chin and jawline filler", time: "45 min" },
     ],
   },
   {
@@ -224,7 +183,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {/* Botox — Frown lines */}
             <div className="rounded-2xl overflow-hidden border border-sand-200 bg-sand-50">
               <div className="relative aspect-square bg-gradient-to-br from-sand-50 via-rose-50 to-sand-50">
@@ -257,22 +216,6 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            {/* Microneedling */}
-            <div className="rounded-2xl overflow-hidden border border-sand-200 bg-sand-50">
-              <div className="relative aspect-square bg-gradient-to-br from-sand-50 via-rose-50 to-sand-50">
-                <Image
-                  src="/images/alaa-4.jpg"
-                  alt="Microneedling — small needles, big results"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="font-serif text-lg text-ink-900">Microneedling</h3>
-                <p className="mt-2 text-sm text-ink-600">Skin texture & radiance</p>
-              </div>
-            </div>
-
             {/* Exosomes for Hair */}
             <div className="rounded-2xl overflow-hidden border border-sand-200 bg-sand-50">
               <div className="relative aspect-square bg-gradient-to-br from-sand-50 via-rose-50 to-sand-50">
@@ -302,22 +245,22 @@ export default function ServicesPage() {
       </section>
 
       <section className="container-page py-16 md:py-24">
-        <div className="relative overflow-hidden rounded-[1.75rem] bg-ink-900 px-5 py-12 text-center text-sand-50 sm:rounded-[2rem] sm:px-8 sm:py-16 md:px-12 md:py-20">
-          {/* Soft gold radial glow */}
-          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(201,167,107,0.18),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(229,191,178,0.12),transparent_60%)]" />
+        <div className="relative overflow-hidden rounded-[1.75rem] border border-gold-300/40 bg-gradient-to-br from-sand-50 via-rose-50 to-sand-50 px-5 py-12 text-center text-ink-800 shadow-sm sm:rounded-[2rem] sm:px-8 sm:py-16 md:px-12 md:py-20">
+          {/* Soft warm radial glow */}
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(201,167,107,0.25),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(229,191,178,0.2),transparent_60%)]" />
 
           <div className="mx-auto flex max-w-2xl flex-col items-center">
-            <LogoMark size="md" variant="dark" />
+            <LogoMark size="md" variant="light" />
 
-            <span className="mt-6 text-[10px] font-medium uppercase tracking-[0.35em] text-gold-300 sm:text-[11px] sm:tracking-[0.4em] md:mt-8">
+            <span className="mt-6 text-[10px] font-medium uppercase tracking-[0.35em] text-gold-500 sm:text-[11px] sm:tracking-[0.4em] md:mt-8">
               Begin a conversation
             </span>
 
-            <h2 className="mt-4 font-serif text-3xl leading-tight sm:text-4xl md:mt-5 md:text-5xl">
+            <h2 className="mt-4 font-serif text-3xl leading-tight text-ink-900 sm:text-4xl md:mt-5 md:text-5xl">
               Not sure where to start?
             </h2>
 
-            <p className="mt-5 text-sm leading-relaxed text-sand-200 sm:text-base md:mt-6 md:text-lg">
+            <p className="mt-5 text-sm leading-relaxed text-ink-700 sm:text-base md:mt-6 md:text-lg">
               Send us a quick message — describe what you'd like to address and
               we'll let you know which treatments make sense to consider.
               Same-day replies on WhatsApp and Instagram. No pressure, no
@@ -333,23 +276,20 @@ export default function ServicesPage() {
               >
                 Book Appointment
               </Link>
-              <Link
-                href="/contact"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-sand-200/40 px-7 py-3 text-xs font-medium uppercase tracking-[0.2em] text-sand-50 transition hover:border-gold-300 hover:text-gold-300 sm:w-auto"
-              >
+              <Link href="/contact" className="btn-outline w-full sm:w-auto">
                 Contact
               </Link>
             </div>
 
-            <div className="mt-8 flex flex-col items-center gap-2 text-[9px] uppercase tracking-[0.25em] text-sand-300 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2 sm:text-[10px] sm:tracking-[0.3em] md:mt-10 md:gap-x-8">
+            <div className="mt-8 flex flex-col items-center gap-2 text-[9px] uppercase tracking-[0.25em] text-ink-600 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2 sm:text-[10px] sm:tracking-[0.3em] md:mt-10 md:gap-x-8">
               <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold-300" /> Same-day replies
+                <span className="h-1.5 w-1.5 rounded-full bg-gold-400" /> Same-day replies
               </span>
               <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold-300" /> Honest consultations
+                <span className="h-1.5 w-1.5 rounded-full bg-gold-400" /> Honest consultations
               </span>
               <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold-300" /> Hulhumalé, Maldives
+                <span className="h-1.5 w-1.5 rounded-full bg-gold-400" /> Hulhumalé, Maldives
               </span>
             </div>
           </div>
