@@ -147,7 +147,7 @@ export default function ContactPage({
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_autoresponse" value="Thank you for contacting Dr. Alaa Zidan's clinic. We have received your message and will reply within one business day. For fastest reply, you can also message us on WhatsApp at +960 793 7512." />
-                <input type="hidden" name="_next" value="https://dralaazidan.com/contact?sent=1" />
+                <input type="hidden" name="_next" value="https://dralaazidan.com/thank-you" />
                 {/* Honeypot — hidden from humans, bots fill it */}
                 <input type="text" name="_honey" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
 
