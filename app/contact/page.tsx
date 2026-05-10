@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import LogoMark from "@/components/LogoMark";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact & Booking",
@@ -12,23 +13,9 @@ const INSTAGRAM_URL = "https://www.instagram.com/dr.alaazidan/";
 const FACEBOOK_URL = "https://www.facebook.com/share/1aB3gGmTu5/?mibextid=wwXIfr";
 const WHATSAPP_URL = `https://wa.me/9607937512?text=${encodeURIComponent("Hello Dr. Alaa, I'd like to book an appointment.")}`;
 
-export default function ContactPage({
-  searchParams,
-}: {
-  searchParams?: { sent?: string };
-}) {
-  const submitted = searchParams?.sent === "1";
+export default function ContactPage() {
   return (
     <>
-      {submitted && (
-        <div className="border-b border-gold-300/50 bg-gradient-to-r from-sand-50 via-rose-50 to-sand-50">
-          <div className="container-page py-4 text-center">
-            <p className="text-sm font-medium text-ink-900">
-              ✓ Your message has been sent. Dr. Alaa's team will reply within one business day.
-            </p>
-          </div>
-        </div>
-      )}
       <section className="container-page pt-20 pb-12">
         <div className="grid gap-10 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
@@ -137,44 +124,7 @@ export default function ContactPage({
             <div className="rounded-2xl border border-sand-200 bg-sand-50 p-6 sm:p-8">
               <p className="text-xs uppercase tracking-widest text-gold-500">Or send a quick note</p>
               <h3 className="mt-2 font-serif text-2xl text-ink-900">Form (we'll reply by email)</h3>
-              <form
-                method="POST"
-                action="https://formsubmit.co/dr.alaa.m.zidan@gmail.com"
-                className="mt-6 space-y-5"
-              >
-                {/* FormSubmit configuration (hidden inputs) */}
-                <input type="hidden" name="_subject" value="New enquiry from dralaazidan.com" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_autoresponse" value="Thank you for contacting Dr. Alaa Zidan's clinic. We have received your message and will reply within one business day. For fastest reply, you can also message us on WhatsApp at +960 793 7512." />
-                <input type="hidden" name="_next" value="https://dralaazidan.com/thank-you" />
-                {/* Honeypot — hidden from humans, bots fill it */}
-                <input type="text" name="_honey" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
-
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div>
-                    <label htmlFor="firstName" className="block text-xs uppercase tracking-widest text-ink-600">First name</label>
-                    <input id="firstName" name="First name" type="text" required className="mt-2 w-full rounded-lg border border-sand-200 bg-sand-50 px-4 py-3 text-ink-900 outline-none focus:border-gold-300" />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-xs uppercase tracking-widest text-ink-600">Last name</label>
-                    <input id="lastName" name="Last name" type="text" required className="mt-2 w-full rounded-lg border border-sand-200 bg-sand-50 px-4 py-3 text-ink-900 outline-none focus:border-gold-300" />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-xs uppercase tracking-widest text-ink-600">Email</label>
-                  <input id="email" name="Email" type="email" required className="mt-2 w-full rounded-lg border border-sand-200 bg-sand-50 px-4 py-3 text-ink-900 outline-none focus:border-gold-300" />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-xs uppercase tracking-widest text-ink-600">Message</label>
-                  <textarea id="message" name="Message" rows={4} required className="mt-2 w-full rounded-lg border border-sand-200 bg-sand-50 px-4 py-3 text-ink-900 outline-none focus:border-gold-300" placeholder="What you'd like to ask or book." />
-                </div>
-                <label className="flex items-start gap-3 text-sm text-ink-700">
-                  <input type="checkbox" name="Consent" required className="mt-1 h-4 w-4 rounded border-sand-300 text-gold-400 focus:ring-gold-300" />
-                  <span>I consent to Dr. Alaa Zidan's clinic processing my information to respond to this enquiry.</span>
-                </label>
-                <button type="submit" className="btn-primary w-full sm:w-auto">Send</button>
-              </form>
+              <ContactForm />
               <p className="mt-4 text-xs text-ink-600">
                 For fastest reply, message us on WhatsApp at +960 793 7512 or Instagram.
               </p>
