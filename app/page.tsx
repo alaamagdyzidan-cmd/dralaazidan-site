@@ -94,15 +94,8 @@ export default function Home() {
                 <span className="block text-[2.1rem] sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4.5rem]">
                   The art of natural skin.
                 </span>
-                <span className="mx-auto mt-3 flex items-center justify-center gap-3 md:mx-0 md:justify-start">
-                  <span className="h-px w-8 bg-gold-400 sm:w-12" />
-                  <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-gold-500 sm:text-xs">
-                    The Practice
-                  </span>
-                  <span className="h-px w-8 bg-gold-400 sm:w-12" />
-                </span>
-                <span className="mt-3 block font-script text-[2rem] leading-[1.15] text-rose-400 sm:text-4xl md:mt-4 md:text-5xl lg:text-6xl">
-                  refined, never reinvented.
+                <span className="mt-4 block font-serif text-[1.5rem] italic leading-snug text-rose-500 sm:text-[1.85rem] md:mt-5 md:text-[2.25rem] lg:text-[2.75rem]">
+                  Refined, never reinvented.
                 </span>
               </h1>
 
@@ -173,17 +166,32 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full border border-gold-300/60 bg-sand-50/60 px-4 py-2.5 text-[9px] uppercase tracking-[0.3em] text-ink-700 backdrop-blur sm:gap-x-6 sm:px-6 sm:py-3 sm:text-[10px] md:justify-start">
-                <span className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-gold-400" /> 5+ years experience
-                </span>
-                <span className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-gold-400" /> LMC
-                </span>
-                <span className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-gold-400" /> Hulhumalé
-                </span>
-              </div>
+              <dl className="mt-10 grid grid-cols-3 gap-2 rounded-2xl border border-gold-300/50 bg-sand-50/70 px-3 py-4 backdrop-blur sm:gap-4 sm:px-6 sm:py-5">
+                <div className="flex flex-col items-center border-r border-gold-300/40 pr-2 text-center sm:pr-4">
+                  <dt className="text-[9px] font-medium uppercase tracking-[0.25em] text-gold-500 sm:text-[10px]">
+                    Experience
+                  </dt>
+                  <dd className="mt-1.5 font-serif text-base text-ink-900 sm:text-lg md:text-xl">
+                    5+ Years
+                  </dd>
+                </div>
+                <div className="flex flex-col items-center border-r border-gold-300/40 px-1 text-center sm:px-2">
+                  <dt className="text-[9px] font-medium uppercase tracking-[0.25em] text-gold-500 sm:text-[10px]">
+                    Practising at
+                  </dt>
+                  <dd className="mt-1.5 font-serif text-base text-ink-900 sm:text-lg md:text-xl">
+                    LMC
+                  </dd>
+                </div>
+                <div className="flex flex-col items-center pl-2 text-center sm:pl-4">
+                  <dt className="text-[9px] font-medium uppercase tracking-[0.25em] text-gold-500 sm:text-[10px]">
+                    Location
+                  </dt>
+                  <dd className="mt-1.5 font-serif text-base text-ink-900 sm:text-lg md:text-xl">
+                    Hulhumalé
+                  </dd>
+                </div>
+              </dl>
             </div>
 
             {/* DESKTOP-ONLY portrait — refined circular medallion */}
