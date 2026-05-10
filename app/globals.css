@@ -5,9 +5,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Prevent iOS Safari from auto-zooming text on inputs (helps fixed/sticky stability) */
+    -webkit-text-size-adjust: 100%;
   }
   body {
     @apply bg-sand-50 text-ink-800 antialiased font-sans;
+    /* Avoid horizontal overflow that can break position: sticky in some browsers */
+    overflow-x: hidden;
   }
   h1, h2, h3, h4 {
     @apply font-serif text-ink-900 tracking-tight;

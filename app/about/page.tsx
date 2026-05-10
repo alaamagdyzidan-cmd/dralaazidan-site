@@ -159,7 +159,7 @@ export default function AboutPage() {
             <div className="mt-6 grid gap-2 text-sm text-ink-700">
               <p>📞 <a href="tel:+9607937512" className="hover:text-gold-500">+960 793 7512</a></p>
             </div>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap">
               <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Book Appointment
               </Link>

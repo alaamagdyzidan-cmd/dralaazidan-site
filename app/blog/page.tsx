@@ -90,23 +90,23 @@ export default function BlogPage() {
       </section>
 
       <section className="container-page pb-24">
-        <div className="rounded-[2rem] border border-sand-200 bg-sand-100/60 p-10 md:p-14">
+        <div className="rounded-[2rem] border border-sand-200 bg-sand-100/60 p-6 sm:p-10 md:p-14">
           <div className="grid items-center gap-8 md:grid-cols-12">
-            <div className="md:col-span-8">
+            <div className="text-center md:col-span-8 md:text-left">
               <span className="eyebrow">@dr.alaazidan</span>
-              <h2 className="mt-3 font-serif text-3xl text-ink-900 md:text-4xl">
+              <h2 className="mt-3 font-serif text-2xl text-ink-900 sm:text-3xl md:text-4xl">
                 Shorter notes, before-and-afters, daily moments.
               </h2>
-              <p className="mt-4 max-w-xl text-ink-700">
+              <p className="mx-auto mt-4 max-w-xl text-ink-700 md:mx-0">
                 The blog is the longer-form view. Instagram is where the
                 day-to-day clinical work lives.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3 md:col-span-4 md:justify-end">
-              <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <div className="flex flex-col items-center gap-3 md:col-span-4 md:flex-row md:justify-end">
+              <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto">
                 Book Appointment
               </Link>
-              <Link href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
+              <Link href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn-outline w-full sm:w-auto">
                 Follow on Instagram
               </Link>
             </div>

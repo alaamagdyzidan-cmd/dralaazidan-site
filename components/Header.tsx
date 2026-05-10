@@ -64,7 +64,15 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-sand-100 bg-sand-50/85 backdrop-blur-md">
+    <header
+      className="sticky top-0 z-40 border-b border-sand-200/70 bg-sand-50/95 shadow-[0_1px_0_rgba(201,167,107,0.15)] backdrop-blur-md supports-[backdrop-filter]:bg-sand-50/85"
+      style={{
+        WebkitBackdropFilter: "blur(12px)",
+        backdropFilter: "blur(12px)",
+        transform: "translateZ(0)",
+        willChange: "transform",
+      }}
+    >
       <div className="container-page flex h-20 items-center justify-between gap-4">
         <Link
           href="/"

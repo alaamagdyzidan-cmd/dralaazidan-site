@@ -92,7 +92,7 @@ export default function ServicesPage() {
               the right approach for you is decided together at consultation.
               Send us a message and we'll answer questions before you book.
             </p>
-            <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:flex-wrap md:mt-8">
+            <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap md:mt-8">
               <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Book Appointment
               </Link>

@@ -95,7 +95,7 @@ export default function ThankYouPage() {
         </div>
 
         {/* CTAs */}
-        <div className="mt-12 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+        <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
           <Link
             href={WHATSAPP_URL}
             target="_blank"

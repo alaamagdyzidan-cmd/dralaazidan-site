@@ -111,7 +111,7 @@ export default function Home() {
                 <DoctorImage />
               </div>
 
-              <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:justify-center md:justify-start">
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap md:justify-start">
                 <Link
                   href={WHATSAPP_URL}
                   target="_blank"
@@ -277,7 +277,7 @@ export default function Home() {
             Real before-and-afters, treatment notes, and updates from the
             practice. Follow along for the most current view of the work.
           </p>
-          <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
             <Link
               href={INSTAGRAM_URL}
               target="_blank"
@@ -346,7 +346,7 @@ export default function Home() {
             Same-day replies. Send a message describing what you'd like to
             address — we'll take it from there.
           </p>
-          <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
             <Link
               href={WHATSAPP_URL}
               target="_blank"
