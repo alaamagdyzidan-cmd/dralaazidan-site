@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import LogoMark from "@/components/LogoMark";
 import HeroOrnament from "@/components/HeroOrnament";
+import DoctorImage from "@/components/DoctorImage";
 
 const INSTAGRAM_URL = "https://www.instagram.com/dr.alaazidan/";
 const FACEBOOK_URL = "https://www.facebook.com/share/1aB3gGmTu5/?mibextid=wwXIfr";
@@ -105,59 +106,9 @@ export default function Home() {
                 worth doing.
               </p>
 
-              {/* MOBILE-ONLY portrait — circular medallion */}
+              {/* MOBILE-ONLY portrait — same as about page */}
               <div className="mt-8 md:hidden">
-                <div className="relative mx-auto w-[260px] max-w-full">
-                  {/* Warm radial halo behind the circle */}
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 -z-10 scale-[1.4] rounded-full bg-[radial-gradient(circle_at_50%_45%,rgba(201,167,107,0.32),transparent_72%)]"
-                  />
-
-                  {/* Outer thin gold ring */}
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute -inset-3 rounded-full border border-gold-300/55"
-                  />
-                  {/* Soft offset back circle for depth */}
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 translate-x-2 translate-y-2 rounded-full bg-gradient-to-br from-rose-100/70 via-sand-100/50 to-gold-300/30"
-                  />
-
-                  {/* Portrait inside a circular gold-ringed frame */}
-                  <div className="relative aspect-square w-full overflow-hidden rounded-full bg-gradient-to-br from-sand-100 via-rose-50 to-sand-50 ring-1 ring-gold-400/50 shadow-xl shadow-ink-900/15">
-                    <Image
-                      src="/images/dr-alaa-portrait.jpg"
-                      alt="Dr. Alaa Zidan, Aesthetic & Medical Doctor"
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 70vw, 0px"
-                      className="object-cover object-[center_top]"
-                    />
-                  </div>
-
-                  {/* Tiny accent dots — symmetrically placed around the circle */}
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute -top-1.5 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-gold-400"
-                  />
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute -bottom-1.5 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-rose-300"
-                  />
-
-                  {/* Editorial signature */}
-                  <div className="mt-7 flex flex-col items-center">
-                    <div className="h-px w-12 bg-gold-400/70" />
-                    <p className="mt-3 font-script text-3xl text-gold-500 leading-none">
-                      Dr. Alaa Zidan
-                    </p>
-                    <p className="mt-2 text-[9px] uppercase tracking-[0.4em] text-gold-500/80">
-                      Aesthetic &amp; Medical Doctor
-                    </p>
-                  </div>
-                </div>
+                <DoctorImage />
               </div>
 
               <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:justify-center md:justify-start">
@@ -202,69 +153,9 @@ export default function Home() {
               </dl>
             </div>
 
-            {/* DESKTOP-ONLY portrait — refined circular medallion */}
+            {/* DESKTOP-ONLY portrait — same as about page */}
             <div className="hidden md:col-span-5 md:block">
-              <div className="relative mx-auto w-[360px] max-w-full">
-                {/* Warm radial halo behind the circle */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 -z-10 scale-[1.5] rounded-full bg-[radial-gradient(circle_at_50%_45%,rgba(201,167,107,0.32),transparent_72%)]"
-                />
-
-                {/* Outer thin gold ring */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -inset-4 rounded-full border border-gold-300/55"
-                />
-                {/* Soft offset back circle for depth */}
-                <div
-                  aria-hidden
-                  className="absolute inset-0 translate-x-3 translate-y-3 rounded-full bg-gradient-to-br from-rose-100/70 via-sand-100/50 to-gold-300/30"
-                />
-
-                {/* Portrait inside a circular gold-ringed frame */}
-                <div className="relative aspect-square w-full overflow-hidden rounded-full bg-gradient-to-br from-sand-100 via-rose-50 to-sand-50 ring-1 ring-gold-400/55 shadow-2xl shadow-ink-900/20">
-                  <Image
-                    src="/images/dr-alaa-portrait.jpg"
-                    alt="Dr. Alaa Zidan, Aesthetic & Medical Doctor"
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 0px, 30vw"
-                    className="object-cover object-[center_top]"
-                  />
-                </div>
-
-                {/* Decorative accent dots top/bottom centre */}
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -top-2 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-gold-400 shadow"
-                />
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -bottom-2 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-rose-300"
-                />
-
-                {/* Subtle vertical gold rules flanking the circle */}
-                <div
-                  aria-hidden
-                  className="absolute -right-8 top-1/3 h-1/3 w-px bg-gradient-to-b from-transparent via-gold-400 to-transparent"
-                />
-                <div
-                  aria-hidden
-                  className="absolute -left-8 top-[42%] h-14 w-px bg-gradient-to-b from-transparent via-rose-300 to-transparent"
-                />
-
-                {/* Editorial signature */}
-                <div className="mt-10 flex flex-col items-center">
-                  <div className="h-px w-16 bg-gold-400/70" />
-                  <p className="mt-4 font-script text-5xl text-gold-500 leading-none">
-                    Dr. Alaa Zidan
-                  </p>
-                  <p className="mt-3 text-[10px] uppercase tracking-[0.4em] text-gold-500/80">
-                    Aesthetic &amp; Medical Doctor
-                  </p>
-                </div>
-              </div>
+              <DoctorImage />
             </div>
           </div>
         </div>
