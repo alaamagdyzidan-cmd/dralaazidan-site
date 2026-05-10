@@ -101,41 +101,33 @@ export default function Home() {
                 worth doing.
               </p>
 
-              {/* MOBILE-ONLY portrait: sits between paragraph and CTAs */}
-              <div className="mt-10 md:hidden">
-                <div className="relative mx-auto w-full max-w-[300px]">
-                  {/* Soft offset card behind */}
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 translate-x-2 translate-y-2 rounded-[2rem] bg-gradient-to-br from-rose-100 via-sand-100 to-gold-300/40"
-                  />
-                  {/* Main portrait card */}
-                  <div className="relative overflow-hidden rounded-[2rem] border border-gold-300/50 bg-sand-50 shadow-xl shadow-ink-900/15">
-                    <div className="flex items-center justify-between border-b border-sand-200 bg-gradient-to-r from-sand-50 via-rose-50 to-sand-50 px-4 py-2.5">
-                      <span className="text-[9px] font-medium uppercase tracking-[0.35em] text-gold-500">
-                        Dr. Alaa Zidan
-                      </span>
-                      <span className="h-1 w-1 rounded-full bg-gold-400" />
-                    </div>
-                    <div className="relative aspect-[4/5] w-full bg-gradient-to-b from-sand-50 to-sand-100">
-                      <Image
-                        src="/images/dr-alaa-portrait.jpg"
-                        alt="Dr. Alaa Zidan, Aesthetic & Medical Doctor"
-                        fill
-                        priority
-                        sizes="(max-width: 768px) 70vw, 0px"
-                        className="object-cover object-top"
-                      />
-                    </div>
-                    <div className="border-t border-sand-200 bg-sand-50 px-4 py-4 text-center">
-                      <p className="font-script text-2xl text-gold-500">Dr. Alaa Zidan</p>
-                      <p className="mt-1 text-[8px] uppercase tracking-[0.35em] text-ink-600">
-                        Aesthetic &amp; Medical Doctor
-                      </p>
-                    </div>
+              {/* MOBILE-ONLY portrait: blends into the hero background */}
+              <div className="mt-8 md:hidden">
+                <div className="relative mx-auto w-full max-w-[320px]">
+                  {/* The portrait — bleeds into background via bottom fade */}
+                  <div className="relative aspect-[4/5] w-full">
+                    <Image
+                      src="/images/dr-alaa-portrait.jpg"
+                      alt="Dr. Alaa Zidan, Aesthetic & Medical Doctor"
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 80vw, 0px"
+                      className="object-cover object-top"
+                      style={{
+                        WebkitMaskImage:
+                          "radial-gradient(ellipse 75% 90% at 50% 38%, #000 55%, transparent 100%)",
+                        maskImage:
+                          "radial-gradient(ellipse 75% 90% at 50% 38%, #000 55%, transparent 100%)",
+                      }}
+                    />
                   </div>
-                  <div className="pointer-events-none absolute -top-3 -left-3 h-12 w-12 rounded-full border border-gold-400/60" />
-                  <div className="pointer-events-none absolute -bottom-3 -right-3 h-14 w-14 rounded-full border border-rose-300/80" />
+                  {/* Signature beneath — feels organic, not boxed */}
+                  <div className="mt-1 text-center">
+                    <p className="font-script text-3xl text-gold-500">Dr. Alaa Zidan</p>
+                    <p className="mt-1 text-[9px] uppercase tracking-[0.35em] text-gold-500/70">
+                      Aesthetic &amp; Medical Doctor
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -166,41 +158,54 @@ export default function Home() {
               </div>
             </div>
 
-            {/* DESKTOP-ONLY portrait — magazine-style editorial card */}
+            {/* DESKTOP-ONLY portrait — blends into the hero background */}
             <div className="hidden md:col-span-5 md:block">
               <div className="relative mx-auto w-full max-w-md">
-                {/* Soft offset card behind */}
+                {/* Soft gold halo behind the figure */}
                 <div
                   aria-hidden
-                  className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] bg-gradient-to-br from-rose-100 via-sand-100 to-gold-300/40"
+                  className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_55%_65%_at_50%_35%,rgba(201,167,107,0.25),transparent_70%)]"
                 />
-                {/* Main portrait card */}
-                <div className="relative overflow-hidden rounded-[2rem] border border-gold-300/50 bg-sand-50 shadow-2xl shadow-ink-900/20">
-                  <div className="flex items-center justify-between border-b border-sand-200 bg-gradient-to-r from-sand-50 via-rose-50 to-sand-50 px-5 py-3">
-                    <span className="text-[9px] font-medium uppercase tracking-[0.35em] text-gold-500">
-                      Dr. Alaa Zidan
-                    </span>
-                    <span className="h-1 w-1 rounded-full bg-gold-400" />
-                  </div>
-                  <div className="relative aspect-[4/5] w-full bg-gradient-to-b from-sand-50 to-sand-100">
-                    <Image
-                      src="/images/dr-alaa-portrait.jpg"
-                      alt="Dr. Alaa Zidan, Aesthetic & Medical Doctor"
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 0px, 40vw"
-                      className="object-cover object-top"
-                    />
-                  </div>
-                  <div className="border-t border-sand-200 bg-sand-50 px-5 py-5 text-center">
-                    <p className="font-script text-3xl text-gold-500">Dr. Alaa Zidan</p>
-                    <p className="mt-1 text-[9px] uppercase tracking-[0.35em] text-ink-600">
-                      Aesthetic &amp; Medical Doctor
-                    </p>
-                  </div>
+
+                {/* The portrait — bleeds into background via radial mask */}
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src="/images/dr-alaa-portrait.jpg"
+                    alt="Dr. Alaa Zidan, Aesthetic & Medical Doctor"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 0px, 40vw"
+                    className="object-cover object-top"
+                    style={{
+                      WebkitMaskImage:
+                        "radial-gradient(ellipse 75% 92% at 50% 38%, #000 55%, transparent 100%)",
+                      maskImage:
+                        "radial-gradient(ellipse 75% 92% at 50% 38%, #000 55%, transparent 100%)",
+                    }}
+                  />
                 </div>
-                <div className="pointer-events-none absolute -top-3 -left-3 h-14 w-14 rounded-full border border-gold-400/60" />
-                <div className="pointer-events-none absolute -bottom-3 -right-3 h-16 w-16 rounded-full border border-rose-300/80" />
+
+                {/* Decorative thin gold curve flourish below */}
+                <div className="-mt-4 flex flex-col items-center">
+                  <svg
+                    viewBox="0 0 200 12"
+                    className="h-3 w-44 text-gold-400"
+                    aria-hidden
+                  >
+                    <path
+                      d="M2 6 Q60 2 100 6 T198 6"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="0.8"
+                    />
+                  </svg>
+                  <p className="mt-3 font-script text-4xl text-gold-500">
+                    Dr. Alaa Zidan
+                  </p>
+                  <p className="mt-1 text-[10px] uppercase tracking-[0.4em] text-gold-500/70">
+                    Aesthetic &amp; Medical Doctor
+                  </p>
+                </div>
               </div>
             </div>
           </div>
