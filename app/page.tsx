@@ -90,9 +90,20 @@ export default function Home() {
                 Maldives • Egypt
               </span>
 
-              <h1 className="mt-5 font-serif text-[2rem] leading-[1.08] text-ink-900 sm:text-[2.5rem] md:mt-6 md:text-[3.25rem] lg:text-[4.25rem]">
-                The art of natural skin —
-                <span className="italic text-rose-400"> refined, never reinvented.</span>
+              <h1 className="mt-5 font-serif leading-[1.05] text-ink-900 md:mt-6">
+                <span className="block text-[2.1rem] sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4.5rem]">
+                  The art of natural skin.
+                </span>
+                <span className="mx-auto mt-3 flex items-center justify-center gap-3 md:mx-0 md:justify-start">
+                  <span className="h-px w-8 bg-gold-400 sm:w-12" />
+                  <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-gold-500 sm:text-xs">
+                    The Practice
+                  </span>
+                  <span className="h-px w-8 bg-gold-400 sm:w-12" />
+                </span>
+                <span className="mt-3 block font-script text-[2rem] leading-[1.15] text-rose-400 sm:text-4xl md:mt-4 md:text-5xl lg:text-6xl">
+                  refined, never reinvented.
+                </span>
               </h1>
 
               <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-ink-700 sm:text-lg md:mx-0 md:mt-6">

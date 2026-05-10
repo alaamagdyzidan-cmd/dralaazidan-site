@@ -7,7 +7,6 @@ const WHATSAPP_NUMBER = "+960 793 7512";
 const WHATSAPP_URL = `https://wa.me/9607937512?text=${encodeURIComponent(
   "Hello Dr. Alaa, I'd like to ask about a treatment."
 )}`;
-const INSTAGRAM_URL = "https://www.instagram.com/dr.alaazidan/";
 
 type Sender = "bot" | "user";
 type Message = {
@@ -30,7 +29,7 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   // Greetings
   if (/^(hi|hello|hey|salam|assalam|good (morning|afternoon|evening))\b/.test(q)) {
     return {
-      text: "Hello — welcome to Dr. Alaa Zidan's clinic. I can answer quick questions, but for bookings and personalised advice, WhatsApp is fastest.",
+      text: "Hi there! 🌸 I'm Layan, Dr. Alaa's clinic assistant. How can I help you today? For booking and personal advice, the team replies fastest on WhatsApp.",
       showWhatsAppCta: true,
     };
   }
@@ -38,7 +37,7 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   // Booking
   if (/\b(book|appointment|schedule|reservation|consult|consultation|reserve)\b/.test(q)) {
     return {
-      text: "Appointments are by message — Dr. Alaa's team replies same-day on WhatsApp.",
+      text: "Lovely — appointments are arranged on WhatsApp ✨ Dr. Alaa's team replies same-day and will find a time that suits you.",
       showWhatsAppCta: true,
     };
   }
@@ -46,7 +45,7 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   // Price / cost
   if (/\b(price|cost|fee|how much|pricing|rate|expensive|cheap|charge)\b/.test(q)) {
     return {
-      text: "Pricing depends on the treatment plan, which is tailored after a consultation. The team can share a quote on WhatsApp.",
+      text: "Pricing is always tailored after a quick consultation — every plan is personal. The team can share a quote on WhatsApp 💫",
       showWhatsAppCta: true,
     };
   }
@@ -54,7 +53,7 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   // Location / where
   if (/\b(where|location|address|directions|map|clinic|hulhumal|maldives|egypt)\b/.test(q)) {
     return {
-      text: "The clinic is at Life Care Medical Center, Hulhumalé, Maldives. Dr. Alaa also practises in Egypt. For directions or to book, WhatsApp is fastest.",
+      text: "The clinic is at Life Care Medical Center, Hulhumalé, Maldives 🌴 Dr. Alaa also practises in Egypt. For directions or to book, WhatsApp is fastest.",
       showWhatsAppCta: true,
     };
   }
@@ -62,7 +61,7 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   // Hours / time
   if (/\b(hour|time|open|close|when|availability|today|tomorrow|saturday|sunday|friday|weekend|monday|tuesday|wednesday|thursday)\b/.test(q)) {
     return {
-      text: "The clinic is open every day from 6:00 PM to 11:00 PM, by appointment. To reserve a time, please message on WhatsApp — same-day reply.",
+      text: "We're open every day from 6:00 PM to 11:00 PM, by appointment 🌙 To reserve a time, please message on WhatsApp — same-day reply.",
       showWhatsAppCta: true,
     };
   }
@@ -70,7 +69,7 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   // Services
   if (/\b(service|treatment|offer|what.+do|what.+you|menu|list|procedure)\b/.test(q)) {
     return {
-      text: "Dr. Alaa specialises in aesthetic dermatology — Botox, dermal fillers, microneedling, exosomes for hair, chemical peels, lasers, and pigmentation care. You can browse the full list on the Services page, or ask the team on WhatsApp.",
+      text: "Dr. Alaa specialises in aesthetic dermatology 🌸 Botox, dermal fillers, microneedling, exosomes for hair, chemical peels, lasers, and pigmentation care. You can browse them all on the Services page, or ask the team on WhatsApp.",
       showWhatsAppCta: true,
     };
   }
@@ -78,37 +77,37 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   // Specific treatments
   if (/\b(botox|wrinkle|frown|forehead|crow)\b/.test(q)) {
     return {
-      text: "Yes — anti-wrinkle injections (Botox) for frown lines, forehead, and crow's feet are one of Dr. Alaa's signature treatments. For dosing and a personalised plan, please message on WhatsApp.",
+      text: "Yes — anti-wrinkle injections (Botox) for frown lines, forehead, and crow's feet are one of Dr. Alaa's signature treatments ✨ For dosing and a personal plan, WhatsApp is best.",
       showWhatsAppCta: true,
     };
   }
   if (/\b(filler|lip|cheek|chin|jawline|hyaluronic)\b/.test(q)) {
     return {
-      text: "Yes — dermal filler for lips, cheeks, chin, and jawline is offered with restraint and natural-looking results. For a tailored plan, please message on WhatsApp.",
+      text: "Yes — dermal filler for lips, cheeks, chin, and jawline is offered with restraint and a natural, soft result 🌸 For a tailored plan, please message on WhatsApp.",
       showWhatsAppCta: true,
     };
   }
   if (/\b(exosome|hair|hair loss|balding|thinning)\b/.test(q)) {
     return {
-      text: "Yes — exosomes for hair restoration is one of the clinic's most-requested regenerative treatments. For candidacy and pricing, please message on WhatsApp.",
+      text: "Yes — exosomes for hair restoration is one of the clinic's most-requested regenerative treatments 💫 For candidacy and pricing, please message on WhatsApp.",
       showWhatsAppCta: true,
     };
   }
   if (/\b(microneedling|dermapen|collagen|elastin|texture)\b/.test(q)) {
     return {
-      text: "Yes — microneedling with serums and growth factors is performed regularly. For session planning and a price, please message on WhatsApp.",
+      text: "Yes — microneedling with serums and growth factors is performed regularly ✨ For session planning and a price, please message on WhatsApp.",
       showWhatsAppCta: true,
     };
   }
   if (/\b(peel|chemical|exfoliat|facial)\b/.test(q)) {
     return {
-      text: "Yes — chemical peels and medical facials are part of the skin rejuvenation menu. For the right peel depth for your skin, please message on WhatsApp.",
+      text: "Yes — chemical peels and medical facials are part of the skin rejuvenation menu 🌸 The right peel depth depends on your skin, so a quick chat on WhatsApp first is ideal.",
       showWhatsAppCta: true,
     };
   }
   if (/\b(laser|ipl|pigment|melasma|acne)\b/.test(q)) {
     return {
-      text: "Yes — laser, IPL, and pigmentation/melasma/acne management are available, always after a careful skin assessment. To start a plan, please message on WhatsApp.",
+      text: "Yes — laser, IPL, and pigmentation, melasma, and acne management are available, always after a careful skin assessment. To start a plan, please message on WhatsApp ✨",
       showWhatsAppCta: true,
     };
   }
@@ -116,7 +115,7 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   // Contact / phone / email
   if (/\b(contact|phone|number|call|whatsapp|email|reach)\b/.test(q)) {
     return {
-      text: `WhatsApp & calls: ${WHATSAPP_NUMBER}. Instagram: @dr.alaazidan. Same-day replies.`,
+      text: `WhatsApp and calls: ${WHATSAPP_NUMBER}. Instagram: @dr.alaazidan. Same-day replies, always 🌸`,
       showWhatsAppCta: true,
     };
   }
@@ -124,7 +123,7 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   // About the doctor
   if (/\b(who|about|experience|dr|doctor|alaa|zidan|background|qualification)\b/.test(q)) {
     return {
-      text: "Dr. Alaa Zidan is an aesthetic and medical doctor with 5+ years of experience in aesthetic dermatology, practising in the Maldives and Egypt.",
+      text: "Dr. Alaa Zidan is an aesthetic and medical doctor with 5+ years of experience in aesthetic dermatology, practising in the Maldives and Egypt ✨",
       showWhatsAppCta: true,
     };
   }
@@ -132,15 +131,15 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   // Safety / pain / downtime
   if (/\b(safe|pain|hurt|side effect|recovery|downtime|risk|complication)\b/.test(q)) {
     return {
-      text: "Every treatment includes a thorough medical assessment first. Specific recovery, side-effects, and suitability depend on your skin and the treatment — please ask on WhatsApp for the details that apply to you.",
+      text: "Every treatment begins with a thorough medical assessment, so safety and comfort always come first 🌸 Specific recovery, side-effects, and what's right for you depend on your skin — the team will walk you through it on WhatsApp.",
       showWhatsAppCta: true,
     };
   }
 
   // Bot identity
-  if (/\b(human|bot|robot|ai|real person|are you|who are you)\b/.test(q)) {
+  if (/\b(human|bot|robot|ai|real person|are you|who are you|your name|layan)\b/.test(q)) {
     return {
-      text: "I'm an automated assistant for quick questions. For real conversations, please message Dr. Alaa's team on WhatsApp.",
+      text: "I'm Layan 🌸 a friendly automated assistant for Dr. Alaa's clinic. For real conversations and bookings, the team is one tap away on WhatsApp.",
       showWhatsAppCta: true,
     };
   }
@@ -148,14 +147,14 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   // Thanks
   if (/\b(thank|thanks|cheers|appreciate)\b/.test(q)) {
     return {
-      text: "You're welcome. Whenever you're ready, WhatsApp is the fastest way to reach Dr. Alaa's team.",
+      text: "You're very welcome ✨ Whenever you're ready, the team is right there on WhatsApp.",
       showWhatsAppCta: true,
     };
   }
 
   // Default
   return {
-    text: "I might not have the right answer for that. For anything specific, please message Dr. Alaa's team on WhatsApp — they reply same-day.",
+    text: "I'm not sure I have the perfect answer for that 🌸 For anything specific, please message Dr. Alaa's team on WhatsApp — they reply same-day.",
     showWhatsAppCta: true,
   };
 }
@@ -167,7 +166,7 @@ export default function AiAgent() {
     {
       id: "welcome",
       sender: "bot",
-      text: "Hello — I'm Dr. Alaa's clinic assistant. Quick questions are welcome. For booking and personalised advice, please WhatsApp the team — they reply same-day.",
+      text: "Hello, lovely to meet you ✨ I'm Layan, Dr. Alaa's clinic assistant. Ask me anything quick — for booking and personalised advice, the team replies fastest on WhatsApp.",
       showWhatsAppCta: true,
     },
   ]);
@@ -180,14 +179,9 @@ export default function AiAgent() {
   }, [messages, open]);
 
   function sendMessage(text: string) {
-    const userMsg: Message = {
-      id: `u-${Date.now()}`,
-      sender: "user",
-      text,
-    };
+    const userMsg: Message = { id: `u-${Date.now()}`, sender: "user", text };
     setMessages((prev) => [...prev, userMsg]);
 
-    // Simulate typing delay for natural feel
     setTimeout(() => {
       const reply = intentReply(text);
       const botMsg: Message = {
@@ -220,29 +214,27 @@ export default function AiAgent() {
 
   return (
     <>
-      {/* Floating launcher — bottom-LEFT (mirrors WhatsApp on right) */}
+      {/* Floating launcher — bottom-LEFT */}
       {!open && (
         <button
           type="button"
           onClick={() => setOpen(true)}
-          aria-label="Open clinic assistant"
-          className="fixed bottom-6 left-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-gold-400 to-gold-500 text-sand-50 shadow-lg shadow-ink-900/30 transition hover:scale-105 hover:from-gold-500 hover:to-gold-600 focus:outline-none focus-visible:ring-4 focus-visible:ring-gold-300 md:h-16 md:w-16"
+          aria-label="Open Layan, the clinic assistant"
+          className="group fixed bottom-6 left-6 z-50 flex items-center gap-3 rounded-full bg-gradient-to-br from-rose-300 via-gold-400 to-gold-500 px-2 py-2 pr-4 text-sand-50 shadow-lg shadow-ink-900/30 transition hover:scale-[1.03] focus:outline-none focus-visible:ring-4 focus-visible:ring-gold-300"
         >
-          {/* Chat bubble with sparkle */}
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-6 w-6 md:h-7 md:w-7"
-            aria-hidden
-          >
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-          </svg>
-          {/* Tiny sparkle dot to suggest "AI" */}
-          <span className="absolute -top-1 -right-1 h-3.5 w-3.5 rounded-full border-2 border-sand-50 bg-rose-400" />
+          {/* Layan avatar */}
+          <span className="relative flex h-11 w-11 items-center justify-center rounded-full bg-sand-50 text-gold-500 shadow-inner md:h-12 md:w-12">
+            <span className="font-script text-3xl leading-none md:text-4xl" aria-hidden>
+              L
+            </span>
+            <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-sand-50 bg-green-500" />
+          </span>
+          <span className="flex flex-col items-start leading-tight">
+            <span className="text-xs font-semibold tracking-wide">Chat with Layan</span>
+            <span className="text-[9px] uppercase tracking-[0.2em] opacity-90">
+              Clinic assistant
+            </span>
+          </span>
         </button>
       )}
 
@@ -250,29 +242,26 @@ export default function AiAgent() {
       {open && (
         <div
           role="dialog"
-          aria-label="Dr. Alaa clinic assistant"
+          aria-label="Layan — Dr. Alaa's clinic assistant"
           className="fixed bottom-6 left-4 right-4 z-50 flex max-h-[80vh] flex-col overflow-hidden rounded-3xl border border-gold-300/50 bg-sand-50 shadow-2xl shadow-ink-900/30 sm:bottom-6 sm:left-6 sm:right-auto sm:w-[380px]"
         >
           {/* Header */}
           <div className="flex items-center justify-between border-b border-sand-200 bg-gradient-to-br from-sand-50 via-rose-50 to-sand-50 px-5 py-4">
             <div className="flex items-center gap-3">
-              <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-gold-400 to-gold-500 text-sand-50 shadow">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="h-5 w-5"
-                  aria-hidden
-                >
-                  <path d="M12 2 13.5 8.5 20 10l-6.5 1.5L12 18l-1.5-6.5L4 10l6.5-1.5L12 2z" />
-                </svg>
-                <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-sand-50 bg-green-500" />
+              <span className="relative flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-rose-300 via-gold-400 to-gold-500 shadow">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-sand-50 text-gold-500">
+                  <span className="font-script text-3xl leading-none" aria-hidden>
+                    L
+                  </span>
+                </span>
+                <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-sand-50 bg-green-500" />
               </span>
               <div>
                 <p className="font-serif text-base leading-tight text-ink-900">
-                  Clinic assistant
+                  Layan
                 </p>
                 <p className="text-[10px] uppercase tracking-[0.25em] text-gold-500">
-                  Replies in seconds
+                  Clinic assistant · Online
                 </p>
               </div>
             </div>
@@ -369,7 +358,7 @@ export default function AiAgent() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask a question…"
+              placeholder="Ask Layan…"
               aria-label="Type your message"
               className="flex-1 rounded-full border border-sand-200 bg-sand-50 px-4 py-2.5 text-sm text-ink-900 outline-none focus:border-gold-300"
               maxLength={500}
@@ -378,7 +367,7 @@ export default function AiAgent() {
               type="submit"
               disabled={!input.trim()}
               aria-label="Send message"
-              className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gold-500 text-sand-50 transition hover:bg-gold-600 disabled:cursor-not-allowed disabled:bg-sand-300"
+              className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-rose-300 to-gold-500 text-sand-50 transition hover:from-rose-400 hover:to-gold-600 disabled:cursor-not-allowed disabled:from-sand-300 disabled:to-sand-300"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -398,7 +387,7 @@ export default function AiAgent() {
           {/* Footer note */}
           <div className="border-t border-sand-200 bg-sand-50 px-4 py-2 text-center">
             <p className="text-[10px] uppercase tracking-[0.2em] text-ink-600">
-              Automated · For personal help WhatsApp the team
+              Layan · automated · WhatsApp for personal help
             </p>
           </div>
         </div>
