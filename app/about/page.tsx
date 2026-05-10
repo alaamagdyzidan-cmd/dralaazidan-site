@@ -44,9 +44,9 @@ export default function AboutPage() {
     <>
       {/* HERO */}
       <section className="container-page pt-14 pb-12 md:pt-20">
-        <div className="grid gap-8 md:grid-cols-12 md:items-end md:gap-12">
+        <div className="grid gap-8 text-center md:grid-cols-12 md:items-end md:gap-12 md:text-left">
           <div className="md:col-span-7">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center gap-3 md:justify-start">
               <LogoMark size="md" variant="light" />
               <span className="eyebrow">Meet Dr. Alaa</span>
             </div>
@@ -55,7 +55,7 @@ export default function AboutPage() {
             </h1>
           </div>
           <div className="md:col-span-5">
-            <p className="text-base leading-relaxed text-ink-700 md:text-lg">
+            <p className="mx-auto max-w-xl text-base leading-relaxed text-ink-700 md:mx-0 md:text-lg">
               Dr. Alaa Zidan is an aesthetic and medical doctor with{" "}
               <span className="font-medium text-ink-900">5+ years of experience</span>{" "}
               in aesthetic dermatology, practising at{" "}
@@ -74,9 +74,9 @@ export default function AboutPage() {
           <div className="md:col-span-5">
             <DoctorImage />
           </div>
-          <div className="md:col-span-7">
+          <div className="text-center md:col-span-7 md:text-left">
             <span className="eyebrow">In her own words</span>
-            <p className="mt-4 font-serif text-2xl leading-relaxed text-ink-900 md:text-3xl">
+            <p className="mt-4 font-serif text-xl leading-relaxed text-ink-900 sm:text-2xl md:text-3xl">
               &ldquo;The most flattering treatments are the ones nobody can
               identify. My job is to refine what's already there — quietly,
               precisely, and only when it's actually worth doing.&rdquo;
@@ -136,13 +136,13 @@ export default function AboutPage() {
 
       {/* CLINIC INFO */}
       <section className="border-y border-sand-200 bg-sand-100/40">
-        <div className="container-page py-14 grid gap-10 md:grid-cols-12 md:gap-12 md:py-20">
+        <div className="container-page py-14 grid gap-10 text-center md:grid-cols-12 md:gap-12 md:py-20 md:text-left">
           <div className="md:col-span-5">
             <span className="eyebrow">The clinic</span>
             <h2 className="mt-3 font-serif text-3xl text-ink-900 sm:text-4xl">
               Life Care Medical Center
             </h2>
-            <p className="mt-6 text-ink-700">
+            <p className="mx-auto mt-5 max-w-md text-base text-ink-700 md:mx-0 md:mt-6">
               Dr. Alaa practises at LMC in Hulhumalé — a calm, modern medical
               centre offering a full range of aesthetic and medical services.
               All consultations are by appointment.
@@ -159,7 +159,7 @@ export default function AboutPage() {
             <div className="mt-6 grid gap-2 text-sm text-ink-700">
               <p>📞 <a href="tel:+9607937512" className="hover:text-gold-500">+960 793 7512</a></p>
             </div>
-            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap md:justify-start">
               <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Book Appointment
               </Link>

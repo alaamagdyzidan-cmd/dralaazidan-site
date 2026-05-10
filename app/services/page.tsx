@@ -121,7 +121,7 @@ export default function ServicesPage() {
   return (
     <>
       <section className="container-page pt-14 pb-12 md:pt-24 md:pb-16">
-        <div className="grid gap-8 md:grid-cols-12 md:items-end md:gap-12">
+        <div className="grid gap-8 text-center md:grid-cols-12 md:items-end md:gap-12 md:text-left">
           <div className="md:col-span-7">
             <span className="eyebrow">Services</span>
             <h1 className="mt-4 font-serif text-4xl leading-tight text-ink-900 sm:text-5xl md:text-6xl lg:text-7xl">
@@ -129,12 +129,12 @@ export default function ServicesPage() {
             </h1>
           </div>
           <div className="md:col-span-5">
-            <p className="text-base leading-relaxed text-ink-700 md:text-lg">
+            <p className="mx-auto max-w-xl text-base leading-relaxed text-ink-700 md:mx-0 md:text-lg">
               Every plan is bespoke. Treatments below are a starting point —
               the right approach for you is decided together at consultation.
               Send us a message and we'll answer questions before you book.
             </p>
-            <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap md:mt-8">
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap md:mt-8 md:justify-start">
               <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Book Appointment
               </Link>
@@ -145,7 +145,7 @@ export default function ServicesPage() {
           </div>
         </div>
 
-        <nav className="mt-10 flex flex-wrap gap-2 border-t border-sand-200 pt-6 md:mt-16 md:gap-3">
+        <nav className="mt-10 flex flex-wrap justify-center gap-2 border-t border-sand-200 pt-6 md:mt-16 md:justify-start md:gap-3">
           {categories.map((c) => (
             <a
               key={c.id}
@@ -165,7 +165,7 @@ export default function ServicesPage() {
           className={i % 2 === 0 ? "border-y border-sand-200 bg-sand-100/40" : ""}
         >
           <div className="container-page py-14 md:py-20">
-            <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+            <div className="grid gap-10 text-center md:grid-cols-12 md:gap-12 md:text-left">
               <div className="md:col-span-5">
                 <span className="eyebrow">0{i + 1}</span>
                 <h2 className="mt-3 font-serif text-3xl text-ink-900 sm:text-4xl">{cat.title}</h2>
@@ -195,7 +195,7 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8">
+                <div className="mt-8 flex justify-center md:justify-start">
                   <Link
                     href={WHATSAPP_URL}
                     target="_blank"
@@ -213,13 +213,13 @@ export default function ServicesPage() {
 
       {/* BEFORE & AFTER RESULTS */}
       <section className="bg-sand-100/40 border-y border-sand-200">
-        <div className="container-page py-24">
-          <div className="text-center mb-16">
+        <div className="container-page py-14 md:py-24">
+          <div className="mb-10 text-center md:mb-16">
             <span className="eyebrow">Real Results</span>
-            <h2 className="mt-3 font-serif text-4xl text-ink-900 md:text-5xl">
+            <h2 className="mt-3 font-serif text-3xl text-ink-900 sm:text-4xl md:text-5xl">
               Before and after gallery.
             </h2>
-            <p className="mt-6 mx-auto max-w-2xl text-lg text-ink-700">
+            <p className="mx-auto mt-5 max-w-2xl text-base text-ink-700 md:mt-6 md:text-lg">
               Real patient results from the clinic. All images shared with consent. Treatments are subtle, natural, and designed to enhance what's already there.
             </p>
           </div>

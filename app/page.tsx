@@ -190,7 +190,7 @@ export default function Home() {
       {/* PHILOSOPHY BAND */}
       <section className="border-y border-sand-200 bg-sand-100/60">
         <div className="container-page py-16 md:py-20">
-          <div className="grid gap-8 md:grid-cols-12 md:gap-12">
+          <div className="grid gap-8 text-center md:grid-cols-12 md:gap-12 md:text-left">
             <div className="md:col-span-4">
               <span className="eyebrow">The practice</span>
               <h2 className="mt-3 font-serif text-3xl text-ink-900 sm:text-4xl md:text-5xl">
@@ -198,7 +198,7 @@ export default function Home() {
               </h2>
             </div>
             <div className="md:col-span-7 md:col-start-6">
-              <p className="text-base leading-relaxed text-ink-700 md:text-lg">
+              <p className="mx-auto max-w-xl text-base leading-relaxed text-ink-700 md:mx-0 md:max-w-none md:text-lg">
                 Dr. Alaa's practice is built on a quiet conviction: the best
                 aesthetic medicine refines what's already there. Every
                 consultation begins with what's actually worth doing — and an
@@ -217,13 +217,13 @@ export default function Home() {
 
       {/* SIGNATURE TREATMENTS — only place that shows alaa-1..alaa-4 */}
       <section className="container-page py-16 md:py-24">
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+        <div className="flex flex-col items-center justify-between gap-6 text-center md:flex-row md:items-end md:text-left">
           <div>
             <span className="eyebrow">Signature treatments</span>
             <h2 className="mt-3 font-serif text-3xl text-ink-900 sm:text-4xl md:text-5xl">
               The work the clinic is known for.
             </h2>
-            <p className="mt-4 max-w-xl text-base text-ink-700 md:text-lg">
+            <p className="mx-auto mt-4 max-w-xl text-base text-ink-700 md:mx-0 md:text-lg">
               Four treatments performed regularly at the clinic. Read about
               each, then book when you're ready.
             </p>
@@ -301,12 +301,14 @@ export default function Home() {
       {/* TESTIMONIALS — text only, no image duplication */}
       <section className="bg-ink-900 text-sand-50">
         <div className="container-page py-16 md:py-24">
-          <span className="text-xs font-medium uppercase tracking-[0.25em] text-gold-300">
-            In their words
-          </span>
-          <h2 className="mt-3 font-serif text-3xl text-sand-50 sm:text-4xl md:text-5xl">
-            Patients on the experience.
-          </h2>
+          <div className="text-center md:text-left">
+            <span className="text-xs font-medium uppercase tracking-[0.25em] text-gold-300">
+              In their words
+            </span>
+            <h2 className="mt-3 font-serif text-3xl text-sand-50 sm:text-4xl md:text-5xl">
+              Patients on the experience.
+            </h2>
+          </div>
 
           <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-3 md:gap-8">
             {testimonials.map((t) => (
