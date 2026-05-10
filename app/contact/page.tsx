@@ -134,7 +134,7 @@ export default function ContactPage({
               <h3 className="mt-2 font-serif text-2xl text-ink-900">Form (we'll reply by email)</h3>
               <form
                 method="POST"
-                action="https://formsubmit.co/alaamagdyzidan@gmail.com"
+                action="https://formsubmit.co/dr.alaa.m.zidan@gmail.com"
                 className="mt-6 space-y-5"
               >
                 {/* FormSubmit configuration (hidden inputs) */}
