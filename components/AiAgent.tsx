@@ -188,6 +188,58 @@ function intentReply(input: string): { text: string; showWhatsAppCta: boolean } 
   };
 }
 
+/**
+ * Silently POST the chat transcript to FormSubmit so the clinic gets a
+ * record of conversations. Uses the AJAX endpoint (no page redirect, no
+ * "Check Your Email" page) and labels the email with a distinct subject so
+ * a Gmail filter can route these into their own folder.
+ *
+ * Suggested Gmail filter:
+ *   Subject contains: "Layan chat transcript"
+ *   Apply label: "Layan chats" + (optionally) Skip the Inbox
+ */
+const TRANSCRIPT_ENDPOINT = "https://formsubmit.co/ajax/dr.alaa.m.zidan@gmail.com";
+
+async function postTranscript(messages: Message[]) {
+  // Skip if the visitor didn't actually say anything
+  const userMsgs = messages.filter((m) => m.sender === "user");
+  if (userMsgs.length === 0) return;
+
+  const transcript = messages
+    .map(
+      (m) =>
+        `${m.sender === "user" ? "Visitor" : "Layan"}: ${m.text.replace(/\s+/g, " ").trim()}`
+    )
+    .join("\n");
+
+  const now = new Date();
+  const timeLabel = now.toLocaleString(undefined, {
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
+
+  try {
+    await fetch(TRANSCRIPT_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        _subject: `🌸 Layan chat transcript — ${timeLabel}`,
+        _template: "table",
+        _captcha: "false",
+        Time: timeLabel,
+        Page: typeof window !== "undefined" ? window.location.href : "—",
+        Messages: userMsgs.length,
+        Transcript: transcript,
+      }),
+    });
+  } catch {
+    // Silent — we don't want to bother the visitor if logging fails
+  }
+}
+
 export default function AiAgent() {
   const [open, setOpen] = useState(false);
   const [showPeek, setShowPeek] = useState(false);
@@ -201,7 +253,42 @@ export default function AiAgent() {
       showWhatsAppCta: true,
     },
   ]);
+  const [transcriptSent, setTranscriptSent] = useState(false);
+  const messagesRef = useRef<Message[]>(messages);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Keep a ref of messages so beforeunload can read the latest
+  useEffect(() => {
+    messagesRef.current = messages;
+  }, [messages]);
+
+  // Send transcript on tab close/navigation if there was a real conversation
+  useEffect(() => {
+    function onBeforeUnload() {
+      const userMsgs = messagesRef.current.filter((m) => m.sender === "user");
+      if (userMsgs.length === 0 || transcriptSent) return;
+      // Best-effort beacon-style send (fire-and-forget)
+      const transcript = messagesRef.current
+        .map(
+          (m) =>
+            `${m.sender === "user" ? "Visitor" : "Layan"}: ${m.text.replace(/\s+/g, " ").trim()}`
+        )
+        .join("\n");
+      const body = JSON.stringify({
+        _subject: `🌸 Layan chat transcript — ${new Date().toLocaleString()}`,
+        _template: "table",
+        _captcha: "false",
+        Time: new Date().toLocaleString(),
+        Page: window.location.href,
+        Messages: userMsgs.length,
+        Transcript: transcript,
+      });
+      const blob = new Blob([body], { type: "application/json" });
+      navigator.sendBeacon?.(TRANSCRIPT_ENDPOINT, blob);
+    }
+    window.addEventListener("beforeunload", onBeforeUnload);
+    return () => window.removeEventListener("beforeunload", onBeforeUnload);
+  }, [transcriptSent]);
 
   // After ~4 seconds on the page, Layan "sends" a peek message bubble
   useEffect(() => {
@@ -254,6 +341,18 @@ export default function AiAgent() {
     setOpen(true);
     setShowPeek(false);
     setPeekDismissed(true);
+  }
+
+  async function closeChat() {
+    setOpen(false);
+    // Send the transcript silently if the visitor actually chatted
+    if (!transcriptSent) {
+      const had = messages.some((m) => m.sender === "user");
+      if (had) {
+        setTranscriptSent(true);
+        await postTranscript(messages);
+      }
+    }
   }
 
   return (
@@ -340,7 +439,7 @@ export default function AiAgent() {
             </div>
             <button
               type="button"
-              onClick={() => setOpen(false)}
+              onClick={closeChat}
               aria-label="Close assistant"
               className="rounded-full p-1.5 text-ink-700 transition hover:bg-sand-200 hover:text-ink-900"
             >
