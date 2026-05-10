@@ -14,28 +14,61 @@ const WHATSAPP_URL = `https://wa.me/9607937512?text=${encodeURIComponent("Hello 
 
 const categories = [
   {
-    id: "injectables",
-    title: "Injectables",
+    id: "pigmentation",
+    title: "Pigmentation, Melasma & Acne",
     intro:
-      "Anti-wrinkle injections and dermal filler placed with restraint and anatomical precision. Subtle softening of expression lines, considered volume restoration, and skin booster treatments designed to look like nothing was done.",
-    image: "/images/alaa-3.jpg",
+      "Medical-led management for hyperpigmentation, melasma, post-inflammatory marks, and active or scarred acne. Every plan begins with a detailed skin assessment to choose the right protocol for your skin type.",
+    image: null,
     treatments: [
-      { name: "Anti-wrinkle injections — frown lines", time: "20–30 min" },
-      { name: "Anti-wrinkle injections — forehead", time: "20–30 min" },
-      { name: "Anti-wrinkle injections — crow's feet", time: "20 min" },
-      { name: "Natural lip filler", time: "30–45 min" },
-      { name: "Cheek and midface filler", time: "45 min" },
-      { name: "Chin and jawline filler", time: "45 min" },
-      { name: "Skin boosters (Profhilo, Sunekos)", time: "30 min" },
+      { name: "Melasma management", time: "By plan" },
+      { name: "Post-inflammatory hyperpigmentation", time: "By plan" },
+      { name: "Active acne treatment", time: "By plan" },
+      { name: "Acne scarring", time: "By plan" },
+    ],
+  },
+  {
+    id: "peels",
+    title: "Chemical Peels & Medical Facials",
+    intro:
+      "Layered, controlled exfoliation tailored to your concerns — from gentle radiance peels to medium-depth resurfacing — paired with medical facials and Hydrafacial for everyday glow.",
+    image: null,
+    treatments: [
+      { name: "Chemical peel — superficial", time: "30 min" },
+      { name: "Chemical peel — medium-depth", time: "45 min" },
+      { name: "Medical facial", time: "60 min" },
+      { name: "Hydrafacial", time: "45 min" },
+    ],
+  },
+  {
+    id: "microneedling",
+    title: "Microneedling",
+    intro:
+      "Small needles, big results. Tiny channels in the skin trigger collagen and elastin renewal, with serums and growth factors delivered deeper than topical care alone can reach.",
+    image: "/images/alaa-4.jpg",
+    treatments: [
+      { name: "Microneedling with serum", time: "45 min" },
+      { name: "Microneedling with PRP", time: "60 min" },
+      { name: "Microneedling with growth factors", time: "60 min" },
+    ],
+  },
+  {
+    id: "skin-boosters",
+    title: "Skin Boosters",
+    intro:
+      "Injectable hydration and bio-revitalisation. Profhilo, Sunekos, polynucleotides, and vitamin cocktails deliver structural support and luminosity deep into the dermis.",
+    image: null,
+    treatments: [
+      { name: "Skin boosters — Profhilo", time: "30 min" },
+      { name: "Skin boosters — Sunekos", time: "30 min" },
       { name: "Polynucleotides", time: "30 min" },
       { name: "Mesotherapy / vitamin cocktails", time: "30 min" },
     ],
   },
   {
-    id: "regenerative",
-    title: "Regenerative",
+    id: "exosomes",
+    title: "Exosomes for Hair & Skin",
     intro:
-      "Cutting-edge regenerative treatments using your body's own healing mechanisms — exosomes, growth factors, and platelet-rich plasma — to restore hair and skin without surgery.",
+      "Regenerative therapy using lab-derived exosomes — natural messengers that signal hair follicles and skin cells to renew. Non-surgical, with consistently strong results in the right candidate.",
     image: "/images/alaa-2.jpg",
     treatments: [
       { name: "Exosomes for hair restoration", time: "45–60 min" },
@@ -45,25 +78,34 @@ const categories = [
     ],
   },
   {
-    id: "skin",
-    title: "Skin Rejuvenation",
+    id: "anti-wrinkle",
+    title: "Anti-Wrinkle Injections (Botox)",
     intro:
-      "Foundational treatments to restore clarity, tone, and resilience. Often the most impactful work — and the platform that makes everything else better.",
-    image: "/images/alaa-4.jpg",
+      "Botox placed with restraint and anatomical precision. Subtle softening of expression lines — natural movement preserved, never frozen.",
+    image: "/images/alaa-1.jpg",
     treatments: [
-      { name: "Microneedling with serum", time: "45 min" },
-      { name: "Microneedling with PRP", time: "60 min" },
-      { name: "Medical facial", time: "60 min" },
-      { name: "Chemical peel — superficial", time: "30 min" },
-      { name: "Chemical peel — medium-depth", time: "45 min" },
-      { name: "Hydrafacial", time: "45 min" },
+      { name: "Anti-wrinkle injections — frown lines", time: "20–30 min" },
+      { name: "Anti-wrinkle injections — forehead", time: "20–30 min" },
+      { name: "Anti-wrinkle injections — crow's feet", time: "20 min" },
+    ],
+  },
+  {
+    id: "dermal-fillers",
+    title: "Dermal Fillers",
+    intro:
+      "Hyaluronic acid filler placed with restraint — natural, soft, harmonised with the face. Natural lip filler, cheek and midface, chin and jawline.",
+    image: "/images/alaa-3.jpg",
+    treatments: [
+      { name: "Natural lip filler", time: "30–45 min" },
+      { name: "Cheek and midface filler", time: "45 min" },
+      { name: "Chin and jawline filler", time: "45 min" },
     ],
   },
   {
     id: "laser",
     title: "Laser & Energy",
     intro:
-      "Calibrated laser and energy-based treatments for pigmentation, vascular concerns, redness, and resurfacing. Always preceded by a detailed skin assessment and tailored to skin type — particularly important in tropical light.",
+      "Calibrated laser and energy-based treatments for pigmentation, vascular concerns, redness, and resurfacing. Always preceded by a detailed skin assessment — particularly important in tropical light.",
     image: "/images/laser.avif",
     treatments: [
       { name: "IPL — pigmentation & vascular", time: "30 min" },
