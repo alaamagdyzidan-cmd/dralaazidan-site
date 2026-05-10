@@ -496,52 +496,31 @@ export default function AiAgent() {
     <>
       {/* Floating launcher — bottom-LEFT */}
       {!open && (
-        <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start gap-3">
-          {/* Peek message — appears after a delay */}
-          {showPeek && (
-            <button
-              type="button"
-              onClick={openChat}
-              className="group relative max-w-[260px] origin-bottom-left animate-[peekIn_0.4s_ease-out] rounded-2xl rounded-bl-md border border-gold-300/50 bg-white px-4 py-3 text-left text-sm text-ink-800 shadow-xl shadow-ink-900/20 transition hover:shadow-2xl"
-            >
-              <span
-                role="button"
-                tabIndex={0}
-                aria-label="Dismiss"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowPeek(false);
-                  setPeekDismissed(true);
-                }}
-                className="absolute -right-2 -top-2 flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border border-sand-200 bg-sand-50 text-ink-700 transition hover:text-ink-900"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3">
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-              </span>
-              <p className="font-medium leading-tight text-ink-900">Hi there 🌸</p>
-              <p className="mt-1 leading-snug">
-                I'm Layan — Dr. Alaa's AI assistant. Tap to chat in any language ✨
-              </p>
-            </button>
-          )}
-
-          <button
-            type="button"
-            onClick={openChat}
-            aria-label="Open Layan, the clinic AI assistant"
-            className="group relative flex items-center gap-3 rounded-full bg-gradient-to-br from-rose-300 via-gold-400 to-gold-500 px-2 py-2 pr-4 text-sand-50 shadow-lg shadow-ink-900/30 transition hover:scale-[1.03] focus:outline-none focus-visible:ring-4 focus-visible:ring-gold-300"
-          >
-            <LAvatar size="md" />
-            <span className="flex flex-col items-start leading-tight">
-              <span className="text-xs font-semibold tracking-wide">Chat with Layan</span>
-              <span className="text-[9px] uppercase tracking-[0.2em] opacity-90">
-                AI clinic assistant
-              </span>
+        <button
+          type="button"
+          onClick={openChat}
+          aria-label="Open Layan, the clinic AI assistant"
+          className="group fixed bottom-6 left-6 z-50 flex items-center gap-3 rounded-full bg-gradient-to-br from-rose-300 via-gold-400 to-gold-500 px-2 py-2 pr-4 text-sand-50 shadow-lg shadow-ink-900/30 transition hover:scale-[1.03] focus:outline-none focus-visible:ring-4 focus-visible:ring-gold-300"
+        >
+          <LAvatar size="md" />
+          <span className="flex flex-col items-start leading-tight">
+            <span className="text-xs font-semibold tracking-wide">Chat with Layan</span>
+            <span className="text-[9px] uppercase tracking-[0.2em] opacity-90">
+              AI clinic assistant
             </span>
-            <span className="absolute bottom-1.5 left-[34px] h-3 w-3 rounded-full border-2 border-sand-50 bg-green-500" />
-          </button>
-        </div>
+          </span>
+          {/* Online dot */}
+          <span className="absolute bottom-1.5 left-[34px] h-3 w-3 rounded-full border-2 border-sand-50 bg-green-500" />
+          {/* Quiet new-message badge — appears after a short delay */}
+          {showPeek && (
+            <span
+              aria-label="New message"
+              className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-sand-50 bg-rose-400 text-[10px] font-semibold leading-none text-sand-50 shadow"
+            >
+              1
+            </span>
+          )}
+        </button>
       )}
 
       {/* Chat panel */}
@@ -689,18 +668,6 @@ export default function AiAgent() {
         </div>
       )}
 
-      <style jsx global>{`
-        @keyframes peekIn {
-          0% {
-            opacity: 0;
-            transform: translateY(8px) scale(0.92);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-      `}</style>
     </>
   );
 }

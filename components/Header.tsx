@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import LogoMark from "./LogoMark";
 
 const NAV = [
@@ -30,10 +34,44 @@ function FbIcon({ className = "h-4 w-4" }: { className?: string }) {
 }
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Close menu on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  // Lock body scroll while menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  // Close menu with the Esc key
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    if (open) window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <header className="sticky top-0 z-40 border-b border-sand-100 bg-sand-50/85 backdrop-blur-md">
       <div className="container-page flex h-20 items-center justify-between gap-4">
-        <Link href="/" className="group flex items-center gap-3 leading-tight" aria-label="Dr. Alaa Zidan — Home">
+        <Link
+          href="/"
+          onClick={() => setOpen(false)}
+          className="group flex items-center gap-3 leading-tight"
+          aria-label="Dr. Alaa Zidan — Home"
+        >
           <LogoMark size="lg" variant="light" />
           <span className="hidden text-[10px] uppercase tracking-[0.28em] text-gold-500 sm:inline">
             Aesthetic &amp; Medical Doctor
@@ -81,38 +119,88 @@ export default function Header() {
           </Link>
         </div>
 
-        <details className="lg:hidden">
-          <summary className="list-none cursor-pointer p-2">
-            <svg className="h-6 w-6 text-ink-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* Mobile menu toggle */}
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          className="flex h-10 w-10 items-center justify-center rounded-full text-ink-900 transition hover:bg-sand-100 lg:hidden"
+        >
+          {open ? (
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-          </summary>
-          <div className="absolute left-0 right-0 top-20 border-b border-sand-100 bg-sand-50 px-6 py-6 shadow-lg">
-            <ul className="space-y-4">
+          )}
+        </button>
+      </div>
+
+      {/* Mobile dropdown — closes when any link is tapped or route changes */}
+      {open && (
+        <>
+          <div
+            className="fixed inset-0 top-20 z-30 bg-ink-900/30 backdrop-blur-sm lg:hidden"
+            onClick={() => setOpen(false)}
+            aria-hidden
+          />
+          <div
+            id="mobile-menu"
+            className="absolute left-0 right-0 top-20 z-40 border-b border-sand-100 bg-sand-50 px-6 py-6 shadow-lg lg:hidden"
+          >
+            <ul className="space-y-1">
               {NAV.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="block text-base font-medium text-ink-800">
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-xl px-3 py-3 text-base font-medium text-ink-800 transition hover:bg-sand-100 hover:text-gold-600"
+                  >
                     {item.label}
                   </Link>
                 </li>
               ))}
-              <li className="pt-4 border-t border-sand-200">
-                <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full">
+              <li className="!mt-4 border-t border-sand-200 pt-4">
+                <Link
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="btn-primary w-full"
+                >
                   Book Appointment
                 </Link>
                 <div className="mt-3 flex gap-2">
-                  <Link href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-icon border-sand-200 text-ink-700">
+                  <Link
+                    href={INSTAGRAM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setOpen(false)}
+                    aria-label="Instagram"
+                    className="social-icon border-sand-200 text-ink-700"
+                  >
                     <IgIcon />
                   </Link>
-                  <Link href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-icon border-sand-200 text-ink-700">
+                  <Link
+                    href={FACEBOOK_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setOpen(false)}
+                    aria-label="Facebook"
+                    className="social-icon border-sand-200 text-ink-700"
+                  >
                     <FbIcon />
                   </Link>
                 </div>
               </li>
             </ul>
           </div>
-        </details>
-      </div>
+        </>
+      )}
     </header>
   );
 }

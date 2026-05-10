@@ -136,9 +136,8 @@ export default function ContactForm() {
           required
           inputMode="tel"
           autoComplete="tel"
-          placeholder="+960 793 7512"
           pattern="^\+?[0-9 ()\-]{6,}$"
-          title="Include your country code, e.g. +960 793 7512"
+          title="Please include your country code"
           className="mt-2 w-full rounded-lg border border-sand-200 bg-sand-50 px-4 py-3 text-ink-900 outline-none focus:border-gold-300"
         />
         <p className="mt-1.5 text-[11px] text-ink-500">
