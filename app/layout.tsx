@@ -6,6 +6,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AiAgent from "@/components/AiAgent";
+import JsonLd from "@/components/JsonLd";
+import { CLINIC_SCHEMA, DR_ALAA } from "@/lib/seo";
 
 const GA_MEASUREMENT_ID = "G-KVS75SX27S";
 
@@ -78,6 +80,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
       </head>
       <body className="min-h-screen">
+        {/* Site-wide structured data — Medical clinic + key person */}
+        <JsonLd data={CLINIC_SCHEMA} />
+        <JsonLd data={DR_ALAA} />
+
         <Header />
         <main>{children}</main>
         <Footer />
