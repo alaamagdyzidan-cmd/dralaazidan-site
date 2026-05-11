@@ -12,21 +12,28 @@ export const metadata: Metadata = {
 const INSTAGRAM_URL = "https://www.instagram.com/dr.alaazidan/";
 const WHATSAPP_URL = `https://wa.me/9607937512?text=${encodeURIComponent("Hello Dr. Alaa, I'd like to ask about a treatment.")}`;
 
-const categories = [
+type Category = {
+  id: string;
+  title: string;
+  intro: string;
+  image: string | null;
+  imageFit?: "cover" | "contain";
+  treatments: { name: string; time: string }[];
+};
+
+const categories: Category[] = [
   {
     id: "skin",
     title: "Skin Rejuvenation",
     intro:
-      "Foundational treatments to restore clarity, tone, and resilience. Pigmentation and acne care, peels, and microneedling — often the most impactful work and the platform that makes everything else better.",
-    image: "/images/alaa-4.jpg",
+      "Foundational treatments to restore clarity, tone, and resilience. Pigmentation and acne care, peels, and medical facials — often the most impactful work and the platform that makes everything else better.",
+    image: "/images/alaa-1.jpg",
     treatments: [
       { name: "Pigmentation, melasma & acne management", time: "By plan" },
       { name: "Chemical peel — superficial", time: "30 min" },
       { name: "Chemical peel — medium-depth", time: "45 min" },
       { name: "Medical facial", time: "60 min" },
       { name: "Hydrafacial", time: "45 min" },
-      { name: "Microneedling with serum", time: "45 min" },
-      { name: "Microneedling with PRP", time: "60 min" },
     ],
   },
   {
@@ -44,7 +51,6 @@ const categories = [
       { name: "Anti-wrinkle injections — crow's feet", time: "20 min" },
       { name: "Natural lip filler", time: "30–45 min" },
       { name: "Cheek and midface filler", time: "45 min" },
-      { name: "Chin and jawline filler", time: "45 min" },
     ],
   },
   {
@@ -61,17 +67,89 @@ const categories = [
     ],
   },
   {
-    id: "laser",
-    title: "Laser & Energy",
+    id: "chin-filler",
+    title: "Natural Chin Filler",
     intro:
-      "Calibrated laser and energy-based treatments for pigmentation, vascular concerns, redness, and resurfacing. Always preceded by a detailed skin assessment — particularly important in tropical light.",
-    image: "/images/laser.avif",
+      "Refined chin contouring with hyaluronic acid filler to balance the lower face and improve profile harmony. Subtle definition that looks like your own bone structure.",
+    image: "/images/chin-filler.png",
+    imageFit: "contain",
     treatments: [
-      { name: "IPL — pigmentation & vascular", time: "30 min" },
-      { name: "Fractional laser resurfacing", time: "45–60 min" },
-      { name: "Laser hair reduction", time: "Varies" },
-      { name: "Radiofrequency skin tightening", time: "45 min" },
-      { name: "Carbon laser facial", time: "45 min" },
+      { name: "Chin filler — projection & balance", time: "30–45 min" },
+      { name: "Pre-treatment consultation", time: "Included" },
+    ],
+  },
+  {
+    id: "jawline",
+    title: "Jawline Definition",
+    intro:
+      "Sculpted, structured jawline using filler placed along the angle and body of the jaw. Defines the lower face, sharpens profile, and refines the neck-to-jaw transition.",
+    image: "/images/jawline-definition.png",
+    imageFit: "contain",
+    treatments: [
+      { name: "Jawline filler — definition", time: "45 min" },
+      { name: "Jawline + chin combined plan", time: "60 min" },
+    ],
+  },
+  {
+    id: "undereye",
+    title: "Undereye Correction",
+    intro:
+      "Targeted treatment for tear troughs, dark hollows, and undereye fatigue. A careful combination of filler, biostimulators, and skin boosters — chosen to suit your anatomy.",
+    image: "/images/undereye-correction.png",
+    imageFit: "contain",
+    treatments: [
+      { name: "Tear trough filler", time: "30–45 min" },
+      { name: "Undereye skin booster", time: "30 min" },
+      { name: "Combined undereye plan", time: "45 min" },
+    ],
+  },
+  {
+    id: "glow",
+    title: "Glow Session",
+    intro:
+      "A signature radiance protocol — a tailored layering of cleansing, hydration, and bio-revitalisation that leaves skin visibly brighter, plumper, and more even after a single visit.",
+    image: "/images/glow-session.png",
+    imageFit: "contain",
+    treatments: [
+      { name: "Signature Glow session", time: "60 min" },
+      { name: "Glow + skin booster", time: "75 min" },
+    ],
+  },
+  {
+    id: "scars",
+    title: "Scars Treatments",
+    intro:
+      "Medical-led plan for acne scarring, post-inflammatory marks, and surgical scars. Combination protocols using peels, microneedling, and energy-based options for genuine, lasting improvement.",
+    image: "/images/scars-treatment.png",
+    imageFit: "contain",
+    treatments: [
+      { name: "Acne scar assessment & plan", time: "30 min" },
+      { name: "Microneedling for scars", time: "60 min" },
+      { name: "Peels for post-inflammatory marks", time: "45 min" },
+    ],
+  },
+  {
+    id: "herpes-zoster",
+    title: "Clinical Herpes Zoster Care",
+    intro:
+      "Medical management of active and post-herpetic zoster — easing pain, accelerating healing, and minimising long-term skin pigmentation and scarring with a structured clinical protocol.",
+    image: "/images/herpes-zoster.png",
+    imageFit: "contain",
+    treatments: [
+      { name: "Acute case assessment", time: "30 min" },
+      { name: "Post-zoster skin recovery plan", time: "By plan" },
+    ],
+  },
+  {
+    id: "microneedling",
+    title: "Microneedling",
+    intro:
+      "Small needles, big results. Fine channels in the skin trigger collagen and elastin renewal, with serums and growth factors delivered deeper than topical care alone can reach.",
+    image: "/images/alaa-4.jpg",
+    treatments: [
+      { name: "Microneedling with serum", time: "45 min" },
+      { name: "Microneedling with PRP", time: "60 min" },
+      { name: "Microneedling with growth factors", time: "60 min" },
     ],
   },
 ];
@@ -137,7 +215,8 @@ export default function ServicesPage() {
                       fill
                       sizes="(max-width: 768px) 100vw, 40vw"
                       className={
-                        cat.image.includes("/alaa-")
+                        (cat.imageFit ?? (cat.image.includes("/alaa-") ? "contain" : "cover")) ===
+                        "contain"
                           ? "object-contain"
                           : "object-cover"
                       }
