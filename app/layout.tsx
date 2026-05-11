@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     title: "Dr. Alaa Zidan — Aesthetic & Medical Doctor",
     description: "Aesthetic dermatology at Life Care Medical Center, Hulhumalé, Maldives.",
   },
+  verification: {
+    google: "z5SRotzRIVXKp4ebkarFq5iqstlc-nfcHpVkgDN5EpY",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
