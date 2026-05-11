@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Allura } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AiAgent from "@/components/AiAgent";
+
+const GA_MEASUREMENT_ID = "G-KVS75SX27S";
 
 const serif = Cormorant_Garamond({
   subsets: ["latin"],
@@ -56,6 +59,24 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable} ${script.variable}`}>
+      <head>
+        {/* Google Analytics 4 — loaded as early as possible so it can capture
+            page_view events on every navigation. */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </head>
       <body className="min-h-screen">
         <Header />
         <main>{children}</main>
