@@ -202,7 +202,7 @@ export default function ServicesPage() {
           className={i % 2 === 0 ? "border-y border-sand-200 bg-sand-100/40" : ""}
         >
           <div className="container-page py-14 md:py-20">
-            <div className="grid gap-10 text-center md:grid-cols-12 md:gap-12 md:text-left">
+            <div className="grid gap-10 md:grid-cols-12 md:gap-12">
               <div className="md:col-span-5">
                 <span className="eyebrow">0{i + 1}</span>
                 <h2 className="mt-3 font-serif text-3xl text-ink-900 sm:text-4xl">{cat.title}</h2>
