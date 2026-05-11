@@ -31,7 +31,7 @@ export type Post = {
  */
 export const posts: Post[] = [
   {
-    slug: "microneedling-small-needles-big-results",
+    slug: "microneedling-maldives",
     title: "Microneedling — small needles, big results",
     excerpt:
       "A minimally invasive treatment that uses tiny needles to create micro-channels in the skin, stimulating collagen and elastin for healthier, smoother, more radiant skin.",
@@ -88,7 +88,7 @@ export const posts: Post[] = [
     ],
   },
   {
-    slug: "exosomes-for-hair-loss",
+    slug: "exosomes-hair-loss-maldives",
     title: "Exosomes for hair loss — a new generation of regenerative care",
     excerpt:
       "An advanced regenerative treatment for hair thinning, density loss, and early-stage pattern hair loss. A non-surgical option backed by encouraging clinical results.",
@@ -137,7 +137,7 @@ export const posts: Post[] = [
     ],
   },
   {
-    slug: "botox-for-frown-lines",
+    slug: "botox-frown-lines-maldives",
     title: "Botox for frown lines — smooth, not frozen",
     excerpt:
       "The vertical lines between the eyebrows soften some faces and harden others. Here's how Botox treats them — and why \"natural\" matters more than \"more.\"",
@@ -180,7 +180,7 @@ export const posts: Post[] = [
     ],
   },
   {
-    slug: "natural-lip-filler",
+    slug: "natural-lip-filler-maldives",
     title: "Natural lip filler — hydrated, not overdone",
     excerpt:
       "Soft, healthy, hydrated lips that look like yours — only better-rested. The case for restraint with lip filler.",
@@ -223,7 +223,7 @@ export const posts: Post[] = [
     ],
   },
   {
-    slug: "forehead-botox",
+    slug: "forehead-botox-maldives",
     title: "Forehead Botox — a lighter approach",
     excerpt:
       "Horizontal forehead lines deepen quickly with age and sun. Here's how a careful, lower-dose approach softens them without freezing the brow.",
@@ -260,7 +260,7 @@ export const posts: Post[] = [
     ],
   },
   {
-    slug: "skincare-in-the-maldives-sun",
+    slug: "skincare-maldives-sun",
     title: "Skincare in the Maldives sun — a routine that actually works",
     excerpt:
       "Living in the Maldives — or visiting — changes the rules for sunscreen, retinoids, and after-ocean care. The essentials.",

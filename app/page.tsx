@@ -18,28 +18,28 @@ const signatureTreatments = [
     description:
       "Anti-wrinkle injections for frown lines, forehead, and crow's feet — natural movement preserved.",
     image: "/images/alaa-1.jpg",
-    href: "/blog/botox-for-frown-lines",
+    href: "/blog/botox-frown-lines-maldives",
   },
   {
     title: "Lip & Facial Filler",
     description:
       "Hyaluronic acid filler placed with restraint — natural, soft, harmonised with the face.",
     image: "/images/alaa-3.jpg",
-    href: "/blog/natural-lip-filler",
+    href: "/blog/natural-lip-filler-maldives",
   },
   {
     title: "Exosomes for Hair",
     description:
       "Advanced regenerative treatment for hair thinning and density loss. Non-surgical.",
     image: "/images/alaa-2.jpg",
-    href: "/blog/exosomes-for-hair-loss",
+    href: "/blog/exosomes-hair-loss-maldives",
   },
   {
     title: "Microneedling",
     description:
       "Stimulates collagen and elastin for smoother, firmer, more radiant skin.",
     image: "/images/alaa-4.jpg",
-    href: "/blog/microneedling-small-needles-big-results",
+    href: "/blog/microneedling-maldives",
   },
 ];
 
