@@ -92,27 +92,33 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="container-page pb-24">
-        <div className="rounded-[2rem] border border-sand-200 bg-sand-100/60 p-6 sm:p-10 md:p-14">
-          <div className="grid items-center gap-8 md:grid-cols-12">
-            <div className="text-center md:col-span-8 md:text-left">
-              <span className="eyebrow">@dr.alaazidan</span>
-              <h2 className="mt-3 font-serif text-2xl text-ink-900 sm:text-3xl md:text-4xl">
-                Shorter notes, before-and-afters, daily moments.
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-ink-700 md:mx-0">
-                The blog is the longer-form view. Instagram is where the
-                day-to-day clinical work lives.
-              </p>
-            </div>
-            <div className="flex flex-col items-center gap-3 md:col-span-4 md:flex-row md:justify-end">
-              <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto">
-                Book Appointment
-              </Link>
-              <Link href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn-outline w-full sm:w-auto">
-                Follow on Instagram
-              </Link>
-            </div>
+      <section className="container-page pb-16 md:pb-24">
+        <div className="rounded-[1.75rem] border border-sand-200 bg-sand-100/60 px-6 py-10 text-center sm:rounded-[2rem] sm:px-10 sm:py-12 md:px-14 md:py-16">
+          <span className="eyebrow">@dr.alaazidan</span>
+          <h2 className="mt-3 font-serif text-2xl text-ink-900 sm:text-3xl md:text-4xl">
+            Shorter notes, before-and-afters, daily moments.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-base text-ink-700">
+            The blog is the longer-form view. Instagram is where the
+            day-to-day clinical work lives.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+            <Link
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Book Appointment
+            </Link>
+            <Link
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+            >
+              Follow on Instagram
+            </Link>
           </div>
         </div>
       </section>

@@ -21,6 +21,7 @@ import AuthorCard from "@/components/AuthorCard";
 import Faq from "@/components/Faq";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import KeyTakeaways from "@/components/KeyTakeaways";
+import BlogContactForm from "@/components/BlogContactForm";
 
 const INSTAGRAM_URL = "https://www.instagram.com/dr.alaazidan/";
 const WHATSAPP_URL = `https://wa.me/9607937512?text=${encodeURIComponent(
@@ -86,13 +87,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 /**
- * Render paragraph content, converting **markdown bold** to <strong>.
+ * Render paragraph content, converting both **markdown bold** and
+ * [anchor text](/relative/path) into <strong> and Next.js <Link>.
+ * Used to weave contextual internal links into article body for SEO.
  */
 function renderText(text: string) {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  // First split on bold and link tokens together.
+  const tokenRegex = /(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g;
+  const parts = text.split(tokenRegex);
   return parts.map((part, i) => {
-    const m = /^\*\*(.+)\*\*$/.exec(part);
-    if (m) return <strong key={i}>{m[1]}</strong>;
+    const bold = /^\*\*(.+)\*\*$/.exec(part);
+    if (bold) return <strong key={i}>{bold[1]}</strong>;
+    const link = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(part);
+    if (link) {
+      const [, label, href] = link;
+      const isExternal = /^https?:\/\//.test(href);
+      if (isExternal) {
+        return (
+          <a
+            key={i}
+            href={href}
+            target="_blank"
+            rel="noopener nofollow"
+            className="text-gold-600 underline decoration-gold-300 underline-offset-2 transition hover:decoration-gold-500"
+          >
+            {label}
+          </a>
+        );
+      }
+      return (
+        <Link
+          key={i}
+          href={href}
+          className="text-gold-600 underline decoration-gold-300 underline-offset-2 transition hover:decoration-gold-500"
+        >
+          {label}
+        </Link>
+      );
+    }
     return <span key={i}>{part}</span>;
   });
 }
@@ -186,11 +218,16 @@ export default function BlogPostPage({ params }: Props) {
             <div className="space-y-8 md:space-y-10">
               {post.body.map((section, i) => (
                 <section key={i} className="space-y-4 md:space-y-5">
-                  {section.heading && (
-                    <h2 className="font-serif text-2xl text-ink-900 md:text-3xl">
-                      {section.heading}
-                    </h2>
-                  )}
+                  {section.heading &&
+                    (section.level === 3 ? (
+                      <h3 className="font-serif text-xl text-ink-900 md:text-2xl">
+                        {section.heading}
+                      </h3>
+                    ) : (
+                      <h2 className="font-serif text-2xl text-ink-900 md:text-3xl">
+                        {section.heading}
+                      </h2>
+                    ))}
                   {section.paragraphs?.map((p, j) => (
                     <p
                       key={j}
@@ -287,17 +324,19 @@ export default function BlogPostPage({ params }: Props) {
               </section>
             )}
 
-            {/* Author card (always last in body — strongest E-E-A-T signal) */}
+            {/* Inline contact form / comments section — SEO engagement + lead capture */}
+            <BlogContactForm topic={post.category === "Pillar guide" ? "this topic" : post.title.replace(/ in the Maldives.*/, "")} />
+
+            {/* Author card — strongest E-E-A-T signal, immediately follows engagement */}
             <AuthorCard reviewedOn={post.date} />
 
-            {/* WhatsApp CTA */}
+            {/* WhatsApp + Instagram CTA */}
             <div className="mx-auto mt-12 max-w-3xl rounded-2xl bg-rose-100 p-6 text-center sm:p-8">
               <p className="font-serif text-xl text-ink-900 sm:text-2xl">
-                Have a question about this?
+                Prefer a direct conversation?
               </p>
               <p className="mt-3 text-sm text-ink-700 md:text-base">
-                Every patient's skin and goals are different. Send us a message
-                and we'll answer before you commit to anything.
+                Same-day replies on WhatsApp and Instagram.
               </p>
               <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
                 <Link
