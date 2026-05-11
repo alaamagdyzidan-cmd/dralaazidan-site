@@ -1178,6 +1178,33 @@ export const posts: Post[] = [
 /*                       HELPER FUNCTIONS                             */
 /* ------------------------------------------------------------------ */
 
+/** Slugify a heading string into a safe HTML id and URL fragment. */
+export function slugifyHeading(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
+/** Build a Table of Contents tree from a post body. */
+export function buildToc(body: Post["body"]): {
+  id: string;
+  text: string;
+  level: 2 | 3;
+}[] {
+  return body
+    .filter((s): s is typeof s & { heading: string } => Boolean(s.heading))
+    .map((s) => ({
+      id: slugifyHeading(s.heading),
+      text: s.heading,
+      level: (s.level ?? 2) as 2 | 3,
+    }));
+}
+
 export function getPostBySlug(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
 }

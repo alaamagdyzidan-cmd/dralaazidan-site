@@ -7,6 +7,8 @@ import {
   getAllPostSlugs,
   getRelatedPosts,
   getPillar,
+  buildToc,
+  slugifyHeading,
 } from "@/lib/posts";
 import {
   SITE_URL,
@@ -21,7 +23,8 @@ import AuthorCard from "@/components/AuthorCard";
 import Faq from "@/components/Faq";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import KeyTakeaways from "@/components/KeyTakeaways";
-import BlogContactForm from "@/components/BlogContactForm";
+import TableOfContents from "@/components/TableOfContents";
+import Comments from "@/components/Comments";
 
 const INSTAGRAM_URL = "https://www.instagram.com/dr.alaazidan/";
 const WHATSAPP_URL = `https://wa.me/9607937512?text=${encodeURIComponent(
@@ -214,18 +217,51 @@ export default function BlogPostPage({ params }: Props) {
             {/* Key takeaways — appears above the body for SGE / featured snippets */}
             <KeyTakeaways points={post.keyTakeaways} />
 
+            {/* Table of contents — boosts engagement + scroll-depth signals */}
+            <TableOfContents items={buildToc(post.body)} />
+
             {/* Body */}
             <div className="space-y-8 md:space-y-10">
-              {post.body.map((section, i) => (
-                <section key={i} className="space-y-4 md:space-y-5">
+              {post.body.map((section, i) => {
+                const headingId = section.heading
+                  ? slugifyHeading(section.heading)
+                  : undefined;
+                return (
+                <section
+                  key={i}
+                  id={headingId}
+                  className="scroll-mt-24 space-y-4 md:space-y-5"
+                >
                   {section.heading &&
                     (section.level === 3 ? (
                       <h3 className="font-serif text-xl text-ink-900 md:text-2xl">
-                        {section.heading}
+                        <a
+                          href={`#${headingId}`}
+                          className="group inline-flex items-baseline gap-2 no-underline"
+                        >
+                          <span>{section.heading}</span>
+                          <span
+                            aria-hidden
+                            className="text-gold-400 opacity-0 transition-opacity group-hover:opacity-100"
+                          >
+                            #
+                          </span>
+                        </a>
                       </h3>
                     ) : (
                       <h2 className="font-serif text-2xl text-ink-900 md:text-3xl">
-                        {section.heading}
+                        <a
+                          href={`#${headingId}`}
+                          className="group inline-flex items-baseline gap-2 no-underline"
+                        >
+                          <span>{section.heading}</span>
+                          <span
+                            aria-hidden
+                            className="text-gold-400 opacity-0 transition-opacity group-hover:opacity-100"
+                          >
+                            #
+                          </span>
+                        </a>
                       </h2>
                     ))}
                   {section.paragraphs?.map((p, j) => (
@@ -263,7 +299,8 @@ export default function BlogPostPage({ params }: Props) {
                     </figure>
                   )}
                 </section>
-              ))}
+                );
+              })}
             </div>
 
             {/* FAQ — with FAQPage schema injected above */}
@@ -324,8 +361,8 @@ export default function BlogPostPage({ params }: Props) {
               </section>
             )}
 
-            {/* Inline contact form / comments section — SEO engagement + lead capture */}
-            <BlogContactForm topic={post.category === "Pillar guide" ? "this topic" : post.title.replace(/ in the Maldives.*/, "")} />
+            {/* Public comments — SEO engagement + UGC + email notifications */}
+            <Comments mappingTerm={post.slug} />
 
             {/* Author card — strongest E-E-A-T signal, immediately follows engagement */}
             <AuthorCard reviewedOn={post.date} />
